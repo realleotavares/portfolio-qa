@@ -53,6 +53,7 @@ Focused entirely on Performance and Load Testing using Grafana k6. It demonstrat
 
 ---
 *This ecosystem is governed by strict CI/CD and software engineering standards.*  
+
 **Connect with me:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
 
 <br><br><br>
@@ -110,4 +111,5 @@ Focado inteiramente em Testes de Carga e Performance utilizando Grafana k6. Demo
 
 ---
 *Este ecossistema é governado por rigorosos padrões de CI/CD e engenharia de software.*  
+
 **Conecte-se comigo:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
