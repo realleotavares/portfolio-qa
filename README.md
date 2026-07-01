@@ -3,9 +3,6 @@
 <a id="english"></a>
 # Quality Assurance (QA) & Engineering Portfolio
 
-**Author:** L. Tavares  
-**LinkedIn:** [https://www.linkedin.com/in/leovtavares/](https://www.linkedin.com/in/leovtavares/)
-
 Welcome to my Quality Engineering showcase. This repository serves as a central hub and index for my complete test automation ecosystem. 
 
 Rather than building a monolithic testing project, I have architected a suite of independent, highly specialized repositories. Each project demonstrates enterprise-grade proficiency in a specific layer of the modern testing pyramid, governed by strict CI/CD pipelines, clean code principles, and comprehensive reporting.
@@ -55,15 +52,13 @@ Focused entirely on Performance and Load Testing using Grafana k6. It demonstrat
 - **Load Scenarios:** Implementing distinct architectural tests including Load, Stress, Soak, and Spike testing.
 
 ---
-*This ecosystem is governed by strict CI/CD and software engineering standards.*
+*This ecosystem is governed by strict CI/CD and software engineering standards.*  
+**Connect with me:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
 
 <br><br><br>
 
 <a id="português"></a>
 # Portfólio de Quality Assurance (QA) & Engenharia
-
-**Autor:** L. Tavares  
-**LinkedIn:** [https://www.linkedin.com/in/leovtavares/](https://www.linkedin.com/in/leovtavares/)
 
 Bem-vindo à minha vitrine de Engenharia de Qualidade. Este repositório atua como um hub central e índice para o meu ecossistema completo de automação de testes.
 
@@ -114,4 +109,5 @@ Focado inteiramente em Testes de Carga e Performance utilizando Grafana k6. Demo
 - **Cenários de Carga:** Implementação de testes arquiteturais distintos, incluindo testes de Load, Stress, Soak e Spike.
 
 ---
-*Este ecossistema é governado por rigorosos padrões de CI/CD e engenharia de software.*
+*Este ecossistema é governado por rigorosos padrões de CI/CD e engenharia de software.*  
+**Conecte-se comigo:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
