@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation     Keywords for SauceDemo E2E Flow
-Library           Playwright
+Library           Browser
 
 *** Variables ***
 ${URL}            https://www.saucedemo.com/
