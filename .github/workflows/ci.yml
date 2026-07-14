@@ -1,0 +1,236 @@
+name: QA Monorepo Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  api-pytest:
+    name: Pytest API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r api-pytest/requirements.txt
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre
+          wget https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
+          tar -zxvf allure-2.25.0.tgz
+          sudo mv allure-2.25.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+      - name: Run Pytest against Restful Booker
+        run: pytest api-pytest/restful-booker/tests --alluredir=allure-results
+        continue-on-error: true
+      - name: Generate Allure Report
+        run: allure generate allure-results -o allure-report --clean
+      - name: Upload Allure Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report/
+
+  e2e-playwright:
+    name: Playwright E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install Dependencies
+        run: |
+          cd e2e-playwright
+          npm init -y
+          npm install -D @playwright/test
+          npx playwright install chromium
+      - name: Run SauceDemo E2E Tests
+        run: |
+          cd e2e-playwright/saucedemo
+          npx playwright test tests/ --reporter=html
+        continue-on-error: true
+      - name: Upload Playwright Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: e2e-playwright/saucedemo/playwright-report/
+
+  e2e-robot:
+    name: Robot Framework BDD Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Robot Framework & Browser
+        run: |
+          pip install robotframework robotframework-browser
+          rfbrowser init
+      - name: Run Robot Tests
+        run: robot -d robot-report e2e-robot/saucedemo/tests/
+        continue-on-error: true
+      - name: Upload Robot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-report
+          path: robot-report/
+
+  performance-k6:
+    name: K6 Load Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install K6
+        run: |
+          sudo gpg -k
+          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install k6
+      - name: Run Restful Booker Load Test
+        run: |
+          cd performance-k6/restful-booker/tests/
+          k6 run load_test.js
+        continue-on-error: true
+      - name: Upload K6 Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-report
+          path: performance-k6/restful-booker/tests/k6-report.html
+
+  deploy-pages:
+    name: Deploy Hub to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [api-pytest, e2e-playwright, e2e-robot, performance-k6]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: public/
+          
+      - name: Create Hub Index
+        run: |
+          cat << 'EOF' > public/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>QA Automation Hub</title>
+              <style>
+                  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 40px; text-align: center; }
+                  h1 { color: #2c3e50; }
+                  .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+                  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+                  .card { background: #ecf0f1; padding: 20px; border-radius: 8px; text-decoration: none; color: #2c3e50; transition: transform 0.2s, box-shadow 0.2s; display: block; border-left: 5px solid #3498db; }
+                  .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+                  .card h2 { margin-top: 0; font-size: 1.2rem; }
+                  .card p { margin-bottom: 0; font-size: 0.9rem; color: #7f8c8d; }
+                  .lang-selector { margin-bottom: 20px; }
+                  .lang-selector button { background: none; border: 1px solid #bdc3c7; padding: 5px 15px; cursor: pointer; border-radius: 4px; margin: 0 5px; }
+                  .lang-selector button:hover { background: #ecf0f1; }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <div class="lang-selector">
+                      <button onclick="setLang('pt')">Português</button>
+                      <button onclick="setLang('en')">English</button>
+                      <button onclick="setLang('es')">Español</button>
+                  </div>
+                  <h1 id="title">Central de Relatórios de QA</h1>
+                  <p id="subtitle">Navegue pelos relatórios de execução de todas as camadas de automação gerados ao vivo por nossa pipeline CI/CD.</p>
+                  
+                  <div class="grid">
+                      <a href="playwright-report/index.html" class="card" style="border-left-color: #2EAD33;">
+                          <h2 id="card1-title">Playwright E2E</h2>
+                          <p id="card1-desc">Relatório visual completo (Traces, Vídeos) de Frontend.</p>
+                      </a>
+                      <a href="allure-report/index.html" class="card" style="border-left-color: #0A9EDC;">
+                          <h2 id="card2-title">Pytest & Allure</h2>
+                          <p id="card2-desc">Dashboard interativo de validações de Backend e Schema.</p>
+                      </a>
+                      <a href="robot-report/report.html" class="card" style="border-left-color: #000000;">
+                          <h2 id="card3-title">Robot Framework</h2>
+                          <p id="card3-desc">Logs executáveis do padrão Behavior Driven Development (BDD).</p>
+                      </a>
+                      <a href="k6-report/k6-report.html" class="card" style="border-left-color: #7D64FF;">
+                          <h2 id="card4-title">K6 Performance</h2>
+                          <p id="card4-desc">Métricas de carga, thresholds e SLAs em ambiente estressado.</p>
+                      </a>
+                  </div>
+              </div>
+          
+              <script>
+                  const texts = {
+                      'pt': {
+                          title: 'Central de Relatórios de QA',
+                          subtitle: 'Navegue pelos relatórios de execução de todas as camadas de automação gerados ao vivo por nossa pipeline CI/CD.',
+                          c1t: 'Playwright E2E', c1d: 'Relatório visual completo (Traces, Vídeos) de Frontend.',
+                          c2t: 'Pytest & Allure', c2d: 'Dashboard interativo de validações de Backend e Schema.',
+                          c3t: 'Robot Framework', c3d: 'Logs executáveis do padrão Behavior Driven Development (BDD).',
+                          c4t: 'K6 Performance', c4d: 'Métricas de carga, thresholds e SLAs em ambiente estressado.'
+                      },
+                      'en': {
+                          title: 'QA Reports Hub',
+                          subtitle: 'Browse execution reports from all automation layers generated live by our CI/CD pipeline.',
+                          c1t: 'Playwright E2E', c1d: 'Full visual report (Traces, Videos) for Frontend.',
+                          c2t: 'Pytest & Allure', c2d: 'Interactive dashboard for Backend and Schema validations.',
+                          c3t: 'Robot Framework', c3d: 'Executable logs of the Behavior Driven Development (BDD) pattern.',
+                          c4t: 'K6 Performance', c4d: 'Load metrics, thresholds and SLAs in a stressed environment.'
+                      },
+                      'es': {
+                          title: 'Centro de Reportes de QA',
+                          subtitle: 'Navegue por los reportes de ejecución de todas las capas de automatización generados en vivo por nuestro pipeline CI/CD.',
+                          c1t: 'Playwright E2E', c1d: 'Reporte visual completo (Traces, Videos) de Frontend.',
+                          c2t: 'Pytest & Allure', c2d: 'Panel interactivo de validaciones de Backend y Schema.',
+                          c3t: 'Robot Framework', c3d: 'Registros ejecutables del patrón Behavior Driven Development (BDD).',
+                          c4t: 'K6 Performance', c4d: 'Métricas de carga, umbrales y SLAs en un entorno estresado.'
+                      }
+                  };
+          
+                  function setLang(lang) {
+                      document.getElementById('title').innerText = texts[lang].title;
+                      document.getElementById('subtitle').innerText = texts[lang].subtitle;
+                      document.getElementById('card1-title').innerText = texts[lang].c1t;
+                      document.getElementById('card1-desc').innerText = texts[lang].c1d;
+                      document.getElementById('card2-title').innerText = texts[lang].c2t;
+                      document.getElementById('card2-desc').innerText = texts[lang].c2d;
+                      document.getElementById('card3-title').innerText = texts[lang].c3t;
+                      document.getElementById('card3-desc').innerText = texts[lang].c3d;
+                      document.getElementById('card4-title').innerText = texts[lang].c4t;
+                      document.getElementById('card4-desc').innerText = texts[lang].c4d;
+                  }
+              </script>
+          </body>
+          </html>
+          EOF
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: public/
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

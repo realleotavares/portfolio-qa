@@ -1,0 +1,70 @@
+name: k6 Performance Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  performance-tests:
+    name: Run k6 Load Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run k6 Load Test
+      uses: grafana/k6-action@v0.3.1
+      with:
+        filename: tavardt/tests/load_test.js
+
+    - name: Create Reports Directory
+      if: always()
+      run: |
+        mkdir -p k6-report
+        mv k6-report.html k6-report/index.html || true
+
+    - name: Upload k6 Report as Artifact
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: k6-report
+        path: k6-report
+        retention-days: 30
+
+  deploy-report:
+    name: Deploy Report to GitHub Pages
+    needs: performance-tests
+    if: always()
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+      - name: Download k6 Report Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: k6-report
+          path: k6-report
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: k6-report
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

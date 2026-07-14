@@ -1,0 +1,80 @@
+name: Robot Framework Continuous Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install Node.js (Required for Browser library)
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Initialize Robot Framework Browser
+      run: |
+        python -m Browser.entry clean-node
+        python -m Browser.entry init chromium
+        
+    - name: Run Robot Tests
+      run: robot -d results */tests/
+      
+    - name: Upload Robot Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: robot-framework-reports
+        path: results/
+        retention-days: 30
+
+  deploy-report:
+    name: Deploy Report to GitHub Pages
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    steps:
+      - name: Download Robot Report Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: robot-framework-reports
+          path: robot-framework-reports
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: robot-framework-reports
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
