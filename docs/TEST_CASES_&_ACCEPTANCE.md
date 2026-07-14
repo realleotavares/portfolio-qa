@@ -2,6 +2,9 @@
 
 [Português](#português) | [English](#english) | [Español](#español)
 
+---
+
+<a name="português"></a>
 ## Português
 
 Esta matriz conecta os requisitos de negócios fictícios (Critérios de Aceite) aos cenários de teste automatizados implementados nos frameworks. Isso garante que cada linha de automação entregue valor real de negócio.
@@ -27,6 +30,7 @@ Esta matriz conecta os requisitos de negócios fictícios (Critérios de Aceite)
 
 ---
 
+<a name="english"></a>
 ## English
 
 This matrix connects the fictional business requirements (Acceptance Criteria) to the automated test scenarios implemented across the frameworks. This ensures that every line of automation delivers actual business value.
@@ -52,6 +56,7 @@ This matrix connects the fictional business requirements (Acceptance Criteria) t
 
 ---
 
+<a name="español"></a>
 ## Español
 
 Esta matriz conecta los requisitos comerciales ficticios (Criterios de Aceptación) con los escenarios de prueba automatizados implementados en los frameworks. Esto asegura que cada línea de automatización entregue un valor comercial real.

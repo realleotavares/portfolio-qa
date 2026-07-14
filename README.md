@@ -30,6 +30,9 @@ Consulte os pilares estratégicos de QA na pasta de documentação:
 - [Master Test Plan](docs/TEST_PLAN.md)
 - [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
 - [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+- [Defect Simulator (Jira)](docs/JIRA_SIMULATION.md)
+- [Risk Matrix](docs/RISK_MATRIX.md)
+- [Changelog](CHANGELOG.md)
 
 ---
 
@@ -126,6 +129,9 @@ Explore the strategic QA pillars in the documentation folder:
 - [Master Test Plan](docs/TEST_PLAN.md)
 - [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
 - [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+- [Defect Simulator (Jira)](docs/JIRA_SIMULATION.md)
+- [Risk Matrix](docs/RISK_MATRIX.md)
+- [Changelog](CHANGELOG.md)
 
 ---
 
@@ -222,6 +228,9 @@ Explore los pilares estratégicos de QA en la carpeta de documentación:
 - [Master Test Plan](docs/TEST_PLAN.md)
 - [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
 - [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+- [Defect Simulator (Jira)](docs/JIRA_SIMULATION.md)
+- [Risk Matrix](docs/RISK_MATRIX.md)
+- [Changelog](CHANGELOG.md)
 
 ---
 

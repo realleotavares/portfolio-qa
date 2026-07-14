@@ -2,6 +2,9 @@
 
 [Português](#português) | [English](#english) | [Español](#español)
 
+---
+
+<a name="português"></a>
 ## Português
 
 Este documento cataloga defeitos do mundo real, gargalos de infraestrutura e bugs de automação de testes descobertos e resolvidos durante a construção desta pipeline. Documentar isso garante transparência e prova experiência na mitigação de ambientes complexos e instáveis.
@@ -46,6 +49,7 @@ Criada uma fixture `cleanup_bookings` usando o mecanismo `yield` do Pytest em `c
 
 ---
 
+<a name="english"></a>
 ## English
 
 This document catalogs real-world defects, infrastructure bottlenecks, and test-automation bugs discovered and resolved during the construction of this pipeline. Documenting these ensures transparency and proves experience in mitigating complex, flaky environments.
@@ -90,6 +94,7 @@ Created a `cleanup_bookings` fixture using Pytest's `yield` mechanic in `conftes
 
 ---
 
+<a name="español"></a>
 ## Español
 
 Este documento cataloga defectos del mundo real, cuellos de botella de infraestructura y errores de automatización de pruebas descubiertos y resueltos durante la construcción de esta pipeline. Documentar esto asegura transparencia y prueba experiencia en la mitigación de entornos complejos e inestables.
