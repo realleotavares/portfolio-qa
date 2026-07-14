@@ -1,5 +1,7 @@
 # Master Test Plan: QA Automation Hub
 
+[Português](#português) | [English](#english) | [Español](#español)
+
 ## Português
 
 ### 1. Resumo Executivo

@@ -1,5 +1,7 @@
 # Bug Reports & Infrastructure Catalog
 
+[Português](#português) | [English](#english) | [Español](#español)
+
 ## Português
 
 Este documento cataloga defeitos do mundo real, gargalos de infraestrutura e bugs de automação de testes descobertos e resolvidos durante a construção desta pipeline. Documentar isso garante transparência e prova experiência na mitigação de ambientes complexos e instáveis.

@@ -1,5 +1,7 @@
 # Test Cases & Acceptance Criteria Traceability
 
+[Português](#português) | [English](#english) | [Español](#español)
+
 ## Português
 
 Esta matriz conecta os requisitos de negócios fictícios (Critérios de Aceite) aos cenários de teste automatizados implementados nos frameworks. Isso garante que cada linha de automação entregue valor real de negócio.
