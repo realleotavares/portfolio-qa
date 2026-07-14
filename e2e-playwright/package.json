@@ -4,11 +4,7 @@
   "description": "Portfólio de Automação de Testes (E2E e API)",
   "scripts": {
     "test:e2e": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:luxury": "playwright test luxury-store/e2e",
-    "test:comptia": "playwright test comptia/e2e",
-    "test:postman": "playwright test postman/e2e",
-    "test:api": "newman run luxury-store/api/Cart_API_Collection.json"
+    "test:ui": "playwright test --ui"
   },
   "author": "L. Tavares",
   "license": "ISC",
