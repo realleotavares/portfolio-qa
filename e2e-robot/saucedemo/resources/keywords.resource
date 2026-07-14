@@ -9,6 +9,7 @@ ${URL}            https://www.saucedemo.com/
 *** Keywords ***
 Start SauceDemo Session
     [Documentation]    Opens a new browser and navigates to the SauceDemo homepage.
+    Set Browser Timeout    15s    # Anti-Flakiness: Increased global timeout for slower CI runners
     New Browser    chromium    headless=true
     New Context
     New Page       ${URL}

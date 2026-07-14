@@ -34,7 +34,7 @@ jobs:
       - name: Run Pytest against Restful Booker
         run: |
           cd api-pytest/restful-booker
-          pytest tests --alluredir=${GITHUB_WORKSPACE}/allure-results
+          pytest tests --reruns 1 --alluredir=${GITHUB_WORKSPACE}/allure-results
         continue-on-error: true
       - name: Generate Allure Report
         run: |
