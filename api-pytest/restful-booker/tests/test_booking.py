@@ -47,9 +47,21 @@ class TestBookingAPI:
         # Schema Validation
         validate(instance=data, schema=CREATE_BOOKING_RESPONSE_SCHEMA)
         
-        # Data integrity assertions
-        assert data["booking"]["firstname"] == "John"
-        assert data["booking"]["totalprice"] == 150
+        # Deep Assertions: Data integrity (Echo check)
+        assert data["booking"]["firstname"] == payload["firstname"]
+        assert data["booking"]["totalprice"] == payload["totalprice"]
+        
+        # Deep Assertions: System State Validation (Persistence check)
+        booking_id = data["bookingid"]
+        get_resp = requests.get(f"{base_url}/booking/{booking_id}", headers={"Accept": "application/json"})
+        assert get_resp.status_code == 200, "Booking was not persisted in the database"
+        
+        persisted_data = get_resp.json()
+        assert persisted_data["firstname"] == payload["firstname"], "Persisted firstname mismatch"
+        assert persisted_data["lastname"] == payload["lastname"], "Persisted lastname mismatch"
+        assert persisted_data["totalprice"] == payload["totalprice"], "Persisted totalprice mismatch"
+        assert persisted_data["depositpaid"] == payload["depositpaid"], "Persisted deposit mismatch"
+        assert persisted_data["bookingdates"]["checkin"] == payload["bookingdates"]["checkin"], "Persisted checkin mismatch"
 
     def test_update_booking_requires_auth(self, base_url, auth_headers):
         """Validate that an existing booking can be fully updated using proper authentication."""
@@ -83,10 +95,16 @@ class TestBookingAPI:
         assert update_resp.status_code == 200
         updated_data = update_resp.json()
         
-        # Validate against schema and data integrity
+        # Validate against schema and data integrity (Echo Check)
         validate(instance=updated_data, schema=BOOKING_SCHEMA)
         assert updated_data["firstname"] == "UpdatedName", "Firstname was not updated"
         assert updated_data["totalprice"] == 300, "Total price was not updated"
+        
+        # Deep Assertions: System State Validation (Persistence check)
+        get_resp = requests.get(f"{base_url}/booking/{booking_id}", headers={"Accept": "application/json"})
+        persisted_data = get_resp.json()
+        assert persisted_data["firstname"] == "UpdatedName", "Persisted firstname was not updated in DB"
+        assert persisted_data["totalprice"] == 300, "Persisted total price was not updated in DB"
 
     def test_delete_booking(self, base_url, auth_headers):
         """Validate that a booking can be deleted and subsequent GET returns 404."""

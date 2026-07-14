@@ -40,9 +40,26 @@ test.describe('SauceDemo E2E Checkout Flow', () => {
     await page.locator('[data-test="postalCode"]').fill('90210');
     await page.locator('[data-test="continue"]').click();
 
-    // Checkout: Overview
+    // Checkout: Overview (Deep Assertions: Content and Financial Math Validation)
     await expect(page.locator('.title')).toHaveText('Checkout: Overview');
     await expect(page.locator('.inventory_item_name', { hasText: product })).toBeVisible();
+    
+    const itemPriceText = await page.locator('.inventory_item_price').innerText();
+    const itemPrice = parseFloat(itemPriceText.replace('$', ''));
+    expect(itemPrice).toBe(29.99); // Asserting specific product value
+
+    const subtotalText = await page.locator('.summary_subtotal_label').innerText();
+    expect(subtotalText).toContain(`$${itemPrice}`);
+
+    const taxText = await page.locator('.summary_tax_label').innerText();
+    const tax = parseFloat(taxText.replace('Tax: $', ''));
+    
+    const totalText = await page.locator('.summary_total_label').innerText();
+    const total = parseFloat(totalText.replace('Total: $', ''));
+    
+    // Validate that the system correctly calculates the final total
+    expect(total).toBeCloseTo(itemPrice + tax, 2);
+
     await page.locator('[data-test="finish"]').click();
 
     // Checkout: Complete

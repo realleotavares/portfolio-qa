@@ -46,6 +46,12 @@ Verify Product Is In Cart
     [Documentation]    Checks if the product is visible in the cart items list.
     Wait For Elements State    text="${product_name}"    visible
 
+Verify Product Price And Quantity
+    [Arguments]    ${expected_price}    ${expected_qty}
+    [Documentation]    Deep Assertion: Validates the financial and numeric values in the DOM cart.
+    Get Text       .inventory_item_price    ==    ${expected_price}
+    Get Text       .cart_quantity    ==    ${expected_qty}
+
 Finish Session
     [Documentation]    Closes the browser session.
     Close Browser

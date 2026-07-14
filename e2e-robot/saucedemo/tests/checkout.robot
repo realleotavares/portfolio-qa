@@ -21,3 +21,4 @@ Successful Login and Add To Cart
     # 3. Cart Verification
     Navigate To Cart
     Verify Product Is In Cart    Sauce Labs Backpack
+    Verify Product Price And Quantity    $29.99    1
