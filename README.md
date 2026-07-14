@@ -19,6 +19,20 @@ O portfólio segue diretrizes éticas e profissionais rigorosas:
 
 ---
 
+## Maturidade Técnica & Visão de Negócio
+
+Para além do código, este portfólio demonstra pensamento crítico de engenharia:
+- **Clean State (Teardown Inteligente):** O framework de backend (Pytest) rastreia as entidades criadas e executa o `DELETE` via fixtures (yield), garantindo zero poluição na base de dados de testes.
+- **Deep Assertions (Asserções Profundas):** Os testes E2E validam regras matemáticas (soma de taxas no carrinho) enquanto a API re-consulta endpoints (GET) para provar a persistência real em banco.
+- **Resiliência (Anti-Flakiness):** Integração ativa de Smart Waits, Retries nativos (Playwright/Pytest) e Thresholds customizados (K6) para suportar latências de rede e "Cold Starts".
+
+Consulte os pilares estratégicos de QA na pasta de documentação:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+
+---
+
 ## Mapa Arquitetural
 
 Em vez de manter uma coleção de projetos dispersos, as estratégias de teste foram consolidadas neste Monorepo unificado. Cada pasta representa uma camada distinta da pirâmide de testes.
@@ -46,20 +60,6 @@ Testes de performance utilizando Grafana k6.
 - **Padrão de Projeto:** Scripts modulares com o uso de Métricas Customizadas (`Trend`, `Rate`).
 - **Sandbox Alvo:** Restful-Booker e ambiente de laboratório corporativo.
 - **Competências:** Definição de Acordos de Nível de Serviço (SLAs) como código, através de Thresholds (ex: taxa de erro < 1%, p(95) < 2s).
-
----
-
-## Maturidade Técnica & Visão de Negócio
-
-Para além do código, este portfólio demonstra pensamento crítico de engenharia:
-- **Clean State (Teardown Inteligente):** O framework de backend (Pytest) rastreia as entidades criadas e executa o `DELETE` via fixtures (yield), garantindo zero poluição na base de dados de testes.
-- **Deep Assertions (Asserções Profundas):** Os testes E2E validam regras matemáticas (soma de taxas no carrinho) enquanto a API re-consulta endpoints (GET) para provar a persistência real em banco.
-- **Resiliência (Anti-Flakiness):** Integração ativa de Smart Waits, Retries nativos (Playwright/Pytest) e Thresholds customizados (K6) para suportar latências de rede e "Cold Starts".
-
-Consulte os pilares estratégicos de QA na pasta de documentação:
-- [Master Test Plan](docs/TEST_PLAN.md)
-- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
-- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
 
 ---
 
@@ -104,6 +104,20 @@ This portfolio adheres to strict ethical and professional testing guidelines:
 
 ---
 
+## Technical Maturity & Business Vision
+
+Beyond code, this portfolio demonstrates critical engineering thinking:
+- **Clean State (Intelligent Teardown):** The backend framework (Pytest) tracks generated entities and executes `DELETE` via teardown fixtures (yield), ensuring zero database pollution.
+- **Deep Assertions:** E2E tests validate complex mathematical rules (tax calculation on carts) while the API re-queries endpoints (GET) to definitively prove database persistence.
+- **Resilience (Anti-Flakiness):** Active integration of Smart Waits, native Retries (Playwright/Pytest), and custom Thresholds (K6) to withstand network latency and server "Cold Starts".
+
+Explore the strategic QA pillars in the documentation folder:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+
+---
+
 ## Architectural Map
 
 Rather than building a scattered set of projects, testing strategies have been consolidated into this unified Monorepo. Each folder represents a distinct layer of the testing pyramid.
@@ -131,20 +145,6 @@ Performance testing using Grafana k6.
 - **Design Pattern:** Modular scripts utilizing custom Metrics (`Trend`, `Rate`).
 - **Target Sandbox:** Restful-Booker and corporate laboratory environments.
 - **Competencies:** Defining Service Level Agreements (SLAs) as code through Thresholds (e.g., error rate < 1%, p(95) < 2s).
-
----
-
-## Technical Maturity & Business Vision
-
-Beyond code, this portfolio demonstrates critical engineering thinking:
-- **Clean State (Intelligent Teardown):** The backend framework (Pytest) tracks generated entities and executes `DELETE` via teardown fixtures (yield), ensuring zero database pollution.
-- **Deep Assertions:** E2E tests validate complex mathematical rules (tax calculation on carts) while the API re-queries endpoints (GET) to definitively prove database persistence.
-- **Resilience (Anti-Flakiness):** Active integration of Smart Waits, native Retries (Playwright/Pytest), and custom Thresholds (K6) to withstand network latency and server "Cold Starts".
-
-Explore the strategic QA pillars in the documentation folder:
-- [Master Test Plan](docs/TEST_PLAN.md)
-- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
-- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
 
 ---
 
@@ -189,6 +189,20 @@ Este portafolio sigue directrices éticas y profesionales estrictas:
 
 ---
 
+## Madurez Técnica y Visión de Negocio
+
+Más allá del código, este portafolio demuestra pensamiento crítico de ingeniería:
+- **Estado Limpio (Teardown Inteligente):** El framework de backend (Pytest) rastrea las entidades generadas y ejecuta `DELETE` a través de fixtures (yield), asegurando cero contaminación de datos.
+- **Aserciones Profundas:** Las pruebas E2E validan reglas matemáticas (cálculo de impuestos) mientras que la API vuelve a consultar puntos finales (GET) para probar la persistencia en la base de datos.
+- **Resiliencia (Anti-Flakiness):** Integración activa de Esperas Inteligentes, Reintentos nativos (Playwright/Pytest) y Umbrales personalizados (K6) para soportar latencias de red y "Arranques en Frío".
+
+Explore los pilares estratégicos de QA en la carpeta de documentación:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+
+---
+
 ## Mapa Arquitectónico
 
 En lugar de mantener una colección de proyectos dispersos, se han consolidado las estrategias de prueba en este Monorepo unificado. Cada carpeta representa una capa distinta de la pirámide de pruebas.
@@ -216,20 +230,6 @@ Pruebas de rendimiento utilizando Grafana k6.
 - **Patrón de Diseño:** Scripts modulares con el uso de Métricas Personalizadas (`Trend`, `Rate`).
 - **Sandbox Objetivo:** Restful-Booker y entornos de laboratorio corporativos.
 - **Competencias:** Definición de Acuerdos de Nivel de Servicio (SLAs) como código mediante Umbrales/Thresholds (ej: tasa de error < 1%, p(95) < 2s).
-
----
-
-## Madurez Técnica y Visión de Negocio
-
-Más allá del código, este portafolio demuestra pensamiento crítico de ingeniería:
-- **Estado Limpio (Teardown Inteligente):** El framework de backend (Pytest) rastrea las entidades generadas y ejecuta `DELETE` a través de fixtures (yield), asegurando cero contaminación de datos.
-- **Aserciones Profundas:** Las pruebas E2E validan reglas matemáticas (cálculo de impuestos) mientras que la API vuelve a consultar puntos finales (GET) para probar la persistencia en la base de datos.
-- **Resiliencia (Anti-Flakiness):** Integración activa de Esperas Inteligentes, Reintentos nativos (Playwright/Pytest) y Umbrales personalizados (K6) para soportar latencias de red y "Arranques en Frío".
-
-Explore los pilares estratégicos de QA en la carpeta de documentación:
-- [Master Test Plan](docs/TEST_PLAN.md)
-- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
-- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
 
 ---
 
