@@ -49,6 +49,20 @@ Testes de performance utilizando Grafana k6.
 
 ---
 
+## Maturidade Técnica & Visão de Negócio
+
+Para além do código, este portfólio demonstra pensamento crítico de engenharia:
+- **Clean State (Teardown Inteligente):** O framework de backend (Pytest) rastreia as entidades criadas e executa o `DELETE` via fixtures (yield), garantindo zero poluição na base de dados de testes.
+- **Deep Assertions (Asserções Profundas):** Os testes E2E validam regras matemáticas (soma de taxas no carrinho) enquanto a API re-consulta endpoints (GET) para provar a persistência real em banco.
+- **Resiliência (Anti-Flakiness):** Integração ativa de Smart Waits, Retries nativos (Playwright/Pytest) e Thresholds customizados (K6) para suportar latências de rede e "Cold Starts".
+
+Consulte os pilares estratégicos de QA na pasta de documentação:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+
+---
+
 ## Pipeline CI/CD
 
 Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.github/workflows/ci.yml`). Cada envio para a branch `main` engatilha execuções em paralelo através das quatro camadas:
@@ -120,6 +134,20 @@ Performance testing using Grafana k6.
 
 ---
 
+## Technical Maturity & Business Vision
+
+Beyond code, this portfolio demonstrates critical engineering thinking:
+- **Clean State (Intelligent Teardown):** The backend framework (Pytest) tracks generated entities and executes `DELETE` via teardown fixtures (yield), ensuring zero database pollution.
+- **Deep Assertions:** E2E tests validate complex mathematical rules (tax calculation on carts) while the API re-queries endpoints (GET) to definitively prove database persistence.
+- **Resilience (Anti-Flakiness):** Active integration of Smart Waits, native Retries (Playwright/Pytest), and custom Thresholds (K6) to withstand network latency and server "Cold Starts".
+
+Explore the strategic QA pillars in the documentation folder:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
+
+---
+
 ## CI/CD Pipeline
 
 This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflows/ci.yml`). Every push to the `main` branch triggers parallel test executions across all four testing layers:
@@ -188,6 +216,20 @@ Pruebas de rendimiento utilizando Grafana k6.
 - **Patrón de Diseño:** Scripts modulares con el uso de Métricas Personalizadas (`Trend`, `Rate`).
 - **Sandbox Objetivo:** Restful-Booker y entornos de laboratorio corporativos.
 - **Competencias:** Definición de Acuerdos de Nivel de Servicio (SLAs) como código mediante Umbrales/Thresholds (ej: tasa de error < 1%, p(95) < 2s).
+
+---
+
+## Madurez Técnica y Visión de Negocio
+
+Más allá del código, este portafolio demuestra pensamiento crítico de ingeniería:
+- **Estado Limpio (Teardown Inteligente):** El framework de backend (Pytest) rastrea las entidades generadas y ejecuta `DELETE` a través de fixtures (yield), asegurando cero contaminación de datos.
+- **Aserciones Profundas:** Las pruebas E2E validan reglas matemáticas (cálculo de impuestos) mientras que la API vuelve a consultar puntos finales (GET) para probar la persistencia en la base de datos.
+- **Resiliencia (Anti-Flakiness):** Integración activa de Esperas Inteligentes, Reintentos nativos (Playwright/Pytest) y Umbrales personalizados (K6) para soportar latencias de red y "Arranques en Frío".
+
+Explore los pilares estratégicos de QA en la carpeta de documentación:
+- [Master Test Plan](docs/TEST_PLAN.md)
+- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
 
 ---
 
