@@ -9,8 +9,6 @@
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
-## Apresentação / Sobre
-
 Este repositório atua como um **Monorepo** centralizando um ecossistema completo de automação de testes focado em Engenharia de Qualidade.
 
 O portfólio segue diretrizes éticas e profissionais rigorosas:
@@ -82,8 +80,6 @@ Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.gith
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
-## Presentation / About
-
 This repository serves as a **Monorepo** containing a complete test automation ecosystem focused on Quality Engineering.
 
 This portfolio adheres to strict ethical and professional testing guidelines:
@@ -154,8 +150,6 @@ This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflo
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
-
-## Presentación / Sobre
 
 Este repositorio funciona como un **Monorepo** centralizando un ecosistema completo de automatización de pruebas enfocado en Ingeniería de Calidad.
 
