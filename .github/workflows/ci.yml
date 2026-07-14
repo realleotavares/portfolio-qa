@@ -22,7 +22,11 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install -r api-pytest/requirements.txt
+        run: |
+          sudo apt-get update && sudo apt-get install -y libpq-dev
+          pip install -r api-pytest/requirements.txt
+          pip install -r api-db-integration/requirements.txt
+          pip install -r contract-tests/requirements.txt
       - name: Install Allure CLI
         run: |
           sudo apt-get update
@@ -31,6 +35,14 @@ jobs:
           tar -zxvf allure-2.25.0.tgz
           sudo mv allure-2.25.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+      - name: Start Docker Environment
+        run: docker compose up -d --wait
+      - name: Run Database Integration & Mocking Tests
+        run: pytest api-db-integration/ --alluredir=${GITHUB_WORKSPACE}/allure-results
+        continue-on-error: true
+      - name: Run Pact Contract Tests
+        run: pytest contract-tests/ --alluredir=${GITHUB_WORKSPACE}/allure-results
+        continue-on-error: true
       - name: Run Pytest against Restful Booker
         run: |
           cd api-pytest/restful-booker

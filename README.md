@@ -61,11 +61,22 @@ Testes de performance utilizando Grafana k6.
 - **Sandbox Alvo:** Restful-Booker e ambiente de laboratório corporativo.
 - **Competências:** Definição de Acordos de Nível de Serviço (SLAs) como código, através de Thresholds (ex: taxa de erro < 1%, p(95) < 2s).
 
+### 5. [`api-db-integration/`](./api-db-integration) (Persistência & Mocking)
+Infraestrutura Dockerizada validando integração profunda e isolamento.
+- **Padrão de Projeto:** Pytest + SQLAlchemy + Wiremock.
+- **Sandbox Alvo:** PostgreSQL (Docker) e Wiremock API.
+- **Competências:** Asserções SQL Diretas e isolamento contra APIs terceiras instáveis (Mocking).
+
+### 6. [`contract-tests/`](./contract-tests) (Pact Consumer Tests)
+Garantia de que Front-end e Back-end não quebrem esquemas de comunicação.
+- **Padrão de Projeto:** `pact-python` definindo JSON Schemas esperados.
+- **Competências:** Testes de Contrato, Shift-Left extremo prevenindo falhas de integração.
+
 ---
 
 ## Pipeline CI/CD
 
-Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.github/workflows/ci.yml`). Cada envio para a branch `main` engatilha execuções em paralelo através das quatro camadas:
+Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.github/workflows/ci.yml`). Cada envio para a branch `main` engatilha um ambiente conteinerizado via **Docker Compose** (Postgres + Wiremock) e execuções em paralelo através das camadas:
 - **api-pytest:** Provisiona o ambiente Python e roda as suítes de integração.
 - **e2e-playwright:** Provisiona Node, baixa o Chromium e roda as validações E2E.
 - **e2e-robot:** Provisiona o `robotframework-browser` e executa os fluxos BDD.
@@ -146,11 +157,22 @@ Performance testing using Grafana k6.
 - **Target Sandbox:** Restful-Booker and corporate laboratory environments.
 - **Competencies:** Defining Service Level Agreements (SLAs) as code through Thresholds (e.g., error rate < 1%, p(95) < 2s).
 
+### 5. [`api-db-integration/`](./api-db-integration) (Persistence & Mocking)
+Dockerized infrastructure validating deep integration and isolation.
+- **Design Pattern:** Pytest + SQLAlchemy + Wiremock.
+- **Target Sandbox:** PostgreSQL (Docker) and Wiremock API.
+- **Competencies:** Direct SQL Assertions and Mocking failing third-party environments.
+
+### 6. [`contract-tests/`](./contract-tests) (Pact Consumer Tests)
+Ensuring Front-end and Back-end do not break communication schemas.
+- **Design Pattern:** `pact-python` defining expected JSON Schemas.
+- **Competencies:** Contract Testing, extreme Shift-Left preventing integration failures.
+
 ---
 
 ## CI/CD Pipeline
 
-This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflows/ci.yml`). Every push to the `main` branch triggers parallel test executions across all four testing layers:
+This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflows/ci.yml`). Every push to the `main` branch spins up a containerized environment via **Docker Compose** (Postgres + Wiremock) and triggers parallel test executions:
 - **api-pytest:** Provisions a Python environment and runs the integration tests.
 - **e2e-playwright:** Provisions a Node environment, installs Chromium, and runs the E2E specs.
 - **e2e-robot:** Provisions Python, installs `robotframework-browser`, and executes the BDD specs.
@@ -231,11 +253,22 @@ Pruebas de rendimiento utilizando Grafana k6.
 - **Sandbox Objetivo:** Restful-Booker y entornos de laboratorio corporativos.
 - **Competencias:** Definición de Acuerdos de Nivel de Servicio (SLAs) como código mediante Umbrales/Thresholds (ej: tasa de error < 1%, p(95) < 2s).
 
+### 5. [`api-db-integration/`](./api-db-integration) (Persistencia & Mocking)
+Infraestructura Dockerizada validando integración profunda y aislamiento.
+- **Patrón de Diseño:** Pytest + SQLAlchemy + Wiremock.
+- **Sandbox Objetivo:** PostgreSQL (Docker) y Wiremock API.
+- **Competencias:** Aserciones SQL Directas y Mocking de entornos fallidos de terceros.
+
+### 6. [`contract-tests/`](./contract-tests) (Pact Consumer Tests)
+Garantía de que Front-end y Back-end no rompan los esquemas de comunicación.
+- **Patrón de Diseño:** `pact-python` definiendo JSON Schemas esperados.
+- **Competencias:** Pruebas de Contrato, Shift-Left extremo previniendo fallos de integración.
+
 ---
 
 ## Pipeline CI/CD
 
-Este monorepo es gobernado por un pipeline unificado mediante GitHub Actions (`.github/workflows/ci.yml`). Cada push a la rama `main` desencadena ejecuciones paralelas a través de las cuatro capas:
+Este monorepo es gobernado por un pipeline unificado mediante GitHub Actions (`.github/workflows/ci.yml`). Cada push a la rama `main` levanta un entorno contenedorizado a través de **Docker Compose** (Postgres + Wiremock) y desencadena ejecuciones paralelas:
 - **api-pytest:** Provisiona el entorno Python y ejecuta las suites de integración.
 - **e2e-playwright:** Provisiona Node, descarga Chromium y ejecuta las validaciones E2E.
 - **e2e-robot:** Provisiona `robotframework-browser` y ejecuta los flujos BDD.
