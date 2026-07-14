@@ -9,23 +9,21 @@
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
-> **[Acesse o Hub Central de Relatórios (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar as métricas, traces e logs da última execução da pipeline.
+## Apresentação / Sobre
 
-Bem-vindo à minha vitrine de Engenharia de Qualidade. Este repositório atua como um **Monorepo** centralizando o meu ecossistema completo de automação de testes.
+Este repositório atua como um **Monorepo** centralizando um ecossistema completo de automação de testes focado em Engenharia de Qualidade.
 
-## Filosofia de Testes Éticos
-
-Este portfólio segue diretrizes éticas e profissionais rigorosas:
-- **Testes Não Autorizados:** Não executamos scripts automatizados, testes de carga ou testes exploratórios de UI contra sistemas de produção de terceiros sem autorização explícita.
+O portfólio segue diretrizes éticas e profissionais rigorosas:
+- **Testes Não Autorizados:** Não são executados scripts automatizados, testes de carga ou testes exploratórios de UI contra sistemas de produção de terceiros sem autorização explícita.
 - **Sandboxes Autorizados:** Todos os testes neste portfólio visam sandboxes oficiais e reconhecidos para fins educacionais (ex: `saucedemo.com`, `the-internet.herokuapp.com`, `restful-booker.herokuapp.com`).
-- **Validações Reais:** Não utilizamos `mocks` (como `@patch`) nos nossos testes de integração de API. Os testes executam chamadas HTTP reais e afirmam a integridade estrutural através de JSON Schemas.
-- **Integração de Asserções:** Todo script de teste contém asserções robustas. Não escrevemos scripts exploratórios "cegos".
+- **Validações Reais:** Não são utilizados `mocks` (como `@patch`) nos testes de integração de API. Os testes executam chamadas HTTP reais e afirmam a integridade estrutural através de JSON Schemas.
+- **Integração de Asserções:** Todo script de teste contém asserções robustas. Não há scripts exploratórios "cegos".
 
 ---
 
 ## Mapa Arquitetural
 
-Em vez de manter uma coleção de projetos dispersos, consolidei minhas estratégias de teste neste Monorepo unificado. Cada pasta representa uma camada distinta da pirâmide de testes.
+Em vez de manter uma coleção de projetos dispersos, as estratégias de teste foram consolidadas neste Monorepo unificado. Cada pasta representa uma camada distinta da pirâmide de testes.
 
 ### 1. `e2e-playwright/` (Validação de UI Frontend)
 Framework de testes End-to-End (E2E) utilizando Playwright e TypeScript.
@@ -61,7 +59,17 @@ Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.gith
 - **e2e-robot:** Provisiona o `robotframework-browser` e executa os fluxos BDD.
 - **performance-k6:** Baixa o K6 CLI no Ubuntu e atesta a velocidade da API.
 
-**Conecte-se comigo:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
+---
+
+## Visualização Online
+
+> **[Acesse o Hub Central de Relatórios (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar as métricas, traces e logs da última execução da pipeline.
+
+---
+
+## Conecte-se comigo
+
+[LinkedIn](https://www.linkedin.com/in/leovtavares/)
 
 <br><br><br>
 
@@ -74,23 +82,21 @@ Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.gith
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
-> **[Access the QA Reports Hub (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** to view metrics, traces, and logs from the latest pipeline execution.
+## Presentation / About
 
-Welcome to my Quality Engineering showcase. This repository serves as a **Monorepo** containing my complete test automation ecosystem.
-
-## Ethical Testing Philosophy
+This repository serves as a **Monorepo** containing a complete test automation ecosystem focused on Quality Engineering.
 
 This portfolio adheres to strict ethical and professional testing guidelines:
-- **No Unauthorized Testing:** We do not run automated scripts, load tests, or exploratory UI tests against third-party production systems without explicit authorization.
+- **No Unauthorized Testing:** Automated scripts, load tests, or exploratory UI tests are not run against third-party production systems without explicit authorization.
 - **Authorized Sandboxes Only:** All tests in this portfolio target officially recognized testing sandboxes (e.g., `saucedemo.com`, `the-internet.herokuapp.com`, `restful-booker.herokuapp.com`).
-- **Real Validations:** We do not use `mocks` or `@patch` in our integration API tests. Our tests execute real HTTP calls against sandbox APIs and assert structural and data integrity via JSON Schemas.
-- **Assertion Completeness:** Every single test script contains robust assertions. We do not write "blind" exploratory scripts.
+- **Real Validations:** `mocks` or `@patch` are not used in the integration API tests. The tests execute real HTTP calls against sandbox APIs and assert structural and data integrity via JSON Schemas.
+- **Assertion Completeness:** Every single test script contains robust assertions. No "blind" exploratory scripts are written.
 
 ---
 
 ## Architectural Map
 
-Rather than building a scattered set of projects, I have consolidated my testing strategies into this unified Monorepo. Each folder represents a distinct layer of the testing pyramid.
+Rather than building a scattered set of projects, testing strategies have been consolidated into this unified Monorepo. Each folder represents a distinct layer of the testing pyramid.
 
 ### 1. `e2e-playwright/` (Frontend UI Validation)
 End-to-End (E2E) testing framework utilizing Playwright and TypeScript.
@@ -126,7 +132,17 @@ This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflo
 - **e2e-robot:** Provisions Python, installs `robotframework-browser`, and executes the BDD specs.
 - **performance-k6:** Provisions the K6 CLI on Ubuntu and validates the API thresholds.
 
-**Connect with me:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
+---
+
+## Online Visualization
+
+> **[Access the QA Reports Hub (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** to view metrics, traces, and logs from the latest pipeline execution.
+
+---
+
+## Connect with me
+
+[LinkedIn](https://www.linkedin.com/in/leovtavares/)
 
 <br><br><br>
 
@@ -139,23 +155,21 @@ This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflo
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
-> **[Acceda al Centro de Reportes de QA (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar métricas, traces y registros de la última ejecución del pipeline.
+## Presentación / Sobre
 
-Bienvenido a mi vitrina de Ingeniería de Calidad. Este repositorio funciona como un **Monorepo** centralizando mi ecosistema completo de automatización de pruebas.
-
-## Filosofía de Pruebas Éticas
+Este repositorio funciona como un **Monorepo** centralizando un ecosistema completo de automatización de pruebas enfocado en Ingeniería de Calidad.
 
 Este portafolio sigue directrices éticas y profesionales estrictas:
-- **Pruebas No Autorizadas:** No ejecutamos scripts automatizados, pruebas de carga o pruebas exploratorias de UI contra sistemas de producción de terceros sin autorización explícita.
+- **Pruebas No Autorizadas:** No se ejecutan scripts automatizados, pruebas de carga o pruebas exploratorias de UI contra sistemas de producción de terceros sin autorización explícita.
 - **Sandboxes Autorizados:** Todas las pruebas en este portafolio están dirigidas a sandboxes oficiales y reconocidos con fines educativos (ej: `saucedemo.com`, `the-internet.herokuapp.com`, `restful-booker.herokuapp.com`).
-- **Validaciones Reales:** No utilizamos `mocks` (como `@patch`) en nuestras pruebas de integración de API. Las pruebas ejecutan llamadas HTTP reales y verifican la integridad estructural a través de JSON Schemas.
-- **Integridad de Aserciones:** Todo script de prueba contiene aserciones robustas. No escribimos scripts exploratorios "ciegos".
+- **Validaciones Reales:** No se utilizan `mocks` (como `@patch`) en las pruebas de integración de API. Las pruebas ejecutan llamadas HTTP reales y verifican la integridad estructural a través de JSON Schemas.
+- **Integridad de Aserciones:** Todo script de prueba contiene aserciones robustas. No se escriben scripts exploratorios "ciegos".
 
 ---
 
 ## Mapa Arquitectónico
 
-En lugar de mantener una colección de proyectos dispersos, he consolidado mis estrategias de prueba en este Monorepo unificado. Cada carpeta representa una capa distinta de la pirámide de pruebas.
+En lugar de mantener una colección de proyectos dispersos, se han consolidado las estrategias de prueba en este Monorepo unificado. Cada carpeta representa una capa distinta de la pirámide de pruebas.
 
 ### 1. `e2e-playwright/` (Validación de UI Frontend)
 Framework de pruebas End-to-End (E2E) utilizando Playwright y TypeScript.
@@ -191,4 +205,14 @@ Este monorepo es gobernado por un pipeline unificado mediante GitHub Actions (`.
 - **e2e-robot:** Provisiona `robotframework-browser` y ejecuta los flujos BDD.
 - **performance-k6:** Descarga la CLI de K6 en Ubuntu y verifica la velocidad de la API.
 
-**Conéctate conmigo:** [LinkedIn](https://www.linkedin.com/in/leovtavares/)
+---
+
+## Visualización Online
+
+> **[Acceda al Centro de Reportes de QA (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar métricas, traces y registros de la última ejecución del pipeline.
+
+---
+
+## Conéctate conmigo
+
+[LinkedIn](https://www.linkedin.com/in/leovtavares/)
