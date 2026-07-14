@@ -7,7 +7,7 @@
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-Bem-vindo ao módulo de Engenharia de Performance.
+Módulo de Engenharia de Performance.
 Este repositório foca em Testes de Carga, Stress, Soak e Spike utilizando o framework K6. Ele demonstra a capacidade de analisar gargalos arquiteturais e garantir que os serviços de backend (APIs) suportem alto tráfego concorrente, definindo SLAs diretamente no código.
 
 ## Arquitetura do Módulo
@@ -53,7 +53,7 @@ k6 run restful-booker/tests/load_test.js
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-Welcome to the Performance Engineering module.
+Performance Engineering module.
 This repository focuses on Load, Stress, Soak, and Spike testing using the K6 framework. It demonstrates the ability to analyze architectural bottlenecks and ensure backend services (APIs) can handle high concurrent traffic by defining SLAs directly in code.
 
 ## Module Architecture
@@ -99,7 +99,7 @@ k6 run restful-booker/tests/load_test.js
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 
-Bienvenido al módulo de Ingeniería de Rendimiento.
+Módulo de Ingeniería de Rendimiento.
 Este repositorio se enfoca en Pruebas de Carga, Estrés, Soak y Spike utilizando el framework K6. Demuestra la capacidad de analizar cuellos de botella arquitectónicos y garantizar que los servicios de backend (APIs) soporten un alto tráfico concurrente, definiendo SLAs directamente en el código.
 
 ## Arquitectura del Módulo

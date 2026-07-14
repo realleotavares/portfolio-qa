@@ -7,7 +7,7 @@
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Bem-vindo ao módulo de automação End-to-End (E2E) com Playwright.
+Módulo de automação End-to-End (E2E) com Playwright.
 Este repositório faz parte do meu ecossistema unificado de testes e foca na validação visual e estrutural de aplicações web utilizando sandboxes oficiais, aplicando padrões corporativos como o Page Object Model (POM).
 
 ## Arquitetura do Módulo
@@ -65,7 +65,7 @@ npx playwright show-report
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Welcome to the Playwright End-to-End (E2E) automation module.
+Playwright End-to-End (E2E) automation module.
 This repository is part of my unified testing ecosystem and focuses on visual and structural web validation using official sandboxes, applying corporate patterns such as the Page Object Model (POM).
 
 ## Module Architecture
@@ -123,7 +123,7 @@ npx playwright show-report
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Bienvenido al módulo de automatización End-to-End (E2E) con Playwright.
+Módulo de automatización End-to-End (E2E) con Playwright.
 Este repositorio forma parte de mi ecosistema unificado de pruebas y se centra en la validación visual y estructural de aplicaciones web utilizando sandboxes oficiales, aplicando patrones corporativos como el Page Object Model (POM).
 
 ## Arquitectura del Módulo

@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 
-Bem-vindo ao módulo de automação baseada em Behavior Driven Development (BDD).
+Módulo de automação baseada em Behavior Driven Development (BDD).
 Este repositório demonstra minha habilidade em traduzir requisitos de negócio complexos em automações de interface de usuário (UI) executáveis e legíveis, utilizando o Robot Framework em conjunto com a biblioteca moderna baseada em Playwright.
 
 ## Arquitetura do Módulo (Keyword-Driven)
@@ -61,7 +61,7 @@ robot saucedemo/tests/
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 
-Welcome to the Behavior Driven Development (BDD) automation module.
+Behavior Driven Development (BDD) automation module.
 This repository demonstrates my ability to translate complex business requirements into executable and readable User Interface (UI) automations, using the Robot Framework alongside the modern Playwright-backed library.
 
 ## Module Architecture (Keyword-Driven)
@@ -115,7 +115,7 @@ robot saucedemo/tests/
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 
-Bienvenido al módulo de automatización basada en Behavior Driven Development (BDD).
+Módulo de automatización basada en Behavior Driven Development (BDD).
 Este repositorio demuestra mi habilidad para traducir requisitos de negocio complejos en automatizaciones de interfaz de usuario (UI) ejecutables y legibles, utilizando Robot Framework junto con la biblioteca moderna basada en Playwright.
 
 ## Arquitectura del Módulo (Keyword-Driven)

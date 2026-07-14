@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
 
-Bem-vindo ao módulo de automação de testes de API e garantia de qualidade de backend.
+Módulo de automação de testes de API e garantia de qualidade de backend.
 Este repositório demonstra minha capacidade de validar a integridade de dados, manipular requisições HTTP e implementar asserções corporativas diretamente em código, sem uso de simulações irreais (mocks).
 
 ## Arquitetura do Módulo
@@ -58,7 +58,7 @@ pytest restful-booker/tests/ -v
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
 
-Welcome to the backend quality assurance and API test automation module.
+Backend quality assurance and API test automation module.
 This repository demonstrates my ability to validate data integrity, handle HTTP requests, and implement corporate-level test assertions directly in code, without the use of unrealistic simulations (mocks).
 
 ## Module Architecture
@@ -109,7 +109,7 @@ pytest restful-booker/tests/ -v
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
 
-Bienvenido al módulo de automatización de pruebas de API y garantía de calidad de backend.
+Módulo de automatización de pruebas de API y garantía de calidad de backend.
 Este repositorio demuestra mi capacidad para validar la integridad de los datos, manipular peticiones HTTP e implementar aserciones a nivel corporativo directamente en el código, sin el uso de simulaciones irreales (mocks).
 
 ## Arquitectura del Módulo
