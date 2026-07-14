@@ -2,93 +2,128 @@
 
 [Português](#português) | [English](#english) | [Español](#español)
 
+---
+
+<a name="português"></a>
 ## Português
 
 ### 1. Resumo Executivo
-Este documento descreve a abordagem estratégica de Garantia de Qualidade para o portfólio **QA Automation Hub**. O objetivo é demonstrar uma estratégia madura de testes "shift-left" que abrange múltiplas camadas da arquitetura da aplicação, desde APIs de backend até UI de frontend e performance, aderindo aos princípios da Pirâmide de Automação de Testes.
+Este documento descreve a abordagem estratégica de Garantia de Qualidade para o portfólio **QA Automation Hub**. O objetivo é demonstrar uma estratégia madura de testes "shift-left" que abrange múltiplas camadas da arquitetura da aplicação, desde APIs de backend até UI de frontend, Banco de Dados, Testes de Contrato e Performance, aderindo aos princípios da Pirâmide de Automação de Testes.
 
 ### 2. Estratégia de Testes e a Pirâmide de Automação
 Nossa estratégia de testes é projetada para fornecer máxima cobertura de riscos com velocidade ideal de execução e manutenibilidade.
 
-#### 2.1 Camada de Backend / API (Pytest)
-- **Objetivo:** Validar a lógica de negócios e persistência de banco de dados do microsserviço Restful-Booker.
-- **Por que Pytest?** Fornece um framework robusto e nativo em Python para testes rápidos de API com recursos poderosos de `fixture` para gerenciamento de estado (setup/teardown).
-- **Escopo:** Operações CRUD, Validação de Schema, Autenticação e Asserções Profundas (validando o estado real do banco de dados).
+#### 2.1 Camada de Backend / API & Persistência (Pytest + PostgreSQL)
+- **Objetivo:** Validar a lógica de negócios e persistência física de banco de dados através de um ambiente Dockerizado.
+- **Por que Pytest?** Fornece um framework robusto nativo em Python. Utilizamos SQLAlchemy para asserções profundas direto na base.
+- **Escopo:** Operações CRUD, Autenticação, Asserções Profundas (validando o estado real do banco de dados).
 
-#### 2.2 Camada de Frontend / UI (Playwright e Robot Framework)
+#### 2.2 Camada de Testes de Contrato (Pact)
+- **Objetivo:** Garantir estabilidade na comunicação entre Microserviços (Consumer vs Provider).
+- **Por que Pact?** Previne falhas catastróficas em produção derivadas de quebra de schema JSON.
+- **Escopo:** Mapeamento formal de contratos entre Front-end e Back-end.
+
+#### 2.3 Camada de Mocking (Wiremock)
+- **Objetivo:** Simular APIs terceiras para testes completamente isolados.
+- **Por que Wiremock?** Permite que a nossa pipeline rode offline ou imune a instabilidades de gateways externos.
+- **Escopo:** Virtualização de serviços dependentes.
+
+#### 2.4 Camada de Frontend / UI (Playwright e Robot Framework)
 - **Objetivo:** Validar as jornadas do usuário final (E2E) na plataforma de e-commerce SauceDemo.
-- **Por que Playwright?** Oferece execução ultra-rápida e cross-browser com esperas automáticas (auto-waiting).
-- **Por que Robot Framework?** Implementa o Desenvolvimento Guiado por Comportamento (BDD), atuando como uma documentação viva entre stakeholders técnicos e de negócios.
-- **Escopo:** Fluxos principais geradores de receita (Autenticação, Carrinho, Validação Matemática do Checkout).
+- **Por que Playwright?** Oferece execução ultra-rápida e cross-browser com esperas automáticas.
+- **Por que Robot Framework?** Implementa o Desenvolvimento Guiado por Comportamento (BDD).
+- **Escopo:** Fluxos principais geradores de receita.
 
-#### 2.3 Camada de Performance (K6)
-- **Objetivo:** Garantir que o backend possa sustentar as cargas de usuário esperadas sem degradação.
-- **Por que K6?** Focado no desenvolvedor e baseado em JavaScript que se integra nativamente em pipelines CI/CD com Acordos de Nível de Serviço (SLAs) configuráveis.
-- **Escopo:** Testes de Carga/Estresse na camada de API, monitorando tempos de resposta P95 e taxas de falha.
+#### 2.5 Camada de Performance (K6)
+- **Objetivo:** Garantir que o backend possa sustentar as cargas esperadas sem degradação.
+- **Por que K6?** Focado no desenvolvedor e baseado em JavaScript (SLAs configuráveis).
+- **Escopo:** Testes de Carga/Estresse na camada de API.
 
 ### 3. Análise de Riscos e Mitigação
-- **Poluição de Dados:** (Risco Médio) Mitigado implementando fixtures inteligentes no Pytest com o comando `yield` para auto-excluir dados de teste gerados, independentemente do resultado (Clean State).
-- **Instabilidade de Ambiente:** (Risco Alto) Mitigado integrando `pytest-rerunfailures`, retentativas nativas do Playwright e timeouts estendidos no Robot para tolerar lentidões do servidor (Cold Starts).
-- **Falsos Positivos:** (Risco Alto) Mitigado substituindo asserções superficiais por Asserções Profundas (cálculos matemáticos no carrinho, verificação via banco de dados na API).
+- **Poluição de Dados:** (Risco Médio) Mitigado implementando fixtures inteligentes no Pytest (Clean State).
+- **Instabilidade de Ambiente Externo:** (Risco Alto) Mitigado com Wiremock e Testes de Contrato.
+- **Falsos Positivos:** (Risco Alto) Mitigado por Asserções Profundas SQL em vez de apenas verificar status HTTP.
 
 ---
 
+<a name="english"></a>
 ## English
 
 ### 1. Executive Summary
-This document outlines the strategic Quality Assurance approach for the **QA Automation Hub** portfolio. The objective is to demonstrate a mature, shift-left testing strategy that spans across multiple layers of the application architecture, from backend APIs to frontend UI and performance, adhering to the Test Automation Pyramid principles.
+This document outlines the strategic Quality Assurance approach for the **QA Automation Hub** portfolio. The objective is to demonstrate a mature, shift-left testing strategy that spans across multiple layers of the application architecture, from backend APIs to frontend UI, Database, Contract Testing, and Performance, adhering to the Test Automation Pyramid principles.
 
 ### 2. Test Strategy & The Automation Pyramid
 Our testing strategy is designed to provide maximum risk coverage with optimal execution speed and maintainability.
 
-#### 2.1 Backend / API Layer (Pytest)
-- **Objective:** Validate the business logic and database persistence of the Restful-Booker microservice.
-- **Why Pytest?** It provides a robust, Python-native framework for rapid API testing with powerful `fixture` capabilities for setup/teardown state management.
-- **Scope:** CRUD operations, Schema validation, Authentication, and Deep Assertions (validating actual database state).
+#### 2.1 Backend / API & Persistence Layer (Pytest + PostgreSQL)
+- **Objective:** Validate the business logic and physical database persistence through a Dockerized environment.
+- **Why Pytest?** Provides a robust Python-native framework. We use SQLAlchemy for deep assertions directly in the DB.
+- **Scope:** CRUD operations, Authentication, and Deep Assertions (validating actual database state).
 
-#### 2.2 Frontend / UI Layer (Playwright & Robot Framework)
+#### 2.2 Contract Testing Layer (Pact)
+- **Objective:** Ensure stability in communication between Microservices (Consumer vs Provider).
+- **Why Pact?** Prevents catastrophic production failures derived from JSON schema breaches.
+- **Scope:** Formal mapping of contracts between Front-end and Back-end.
+
+#### 2.3 Mocking Layer (Wiremock)
+- **Objective:** Simulate third-party APIs for completely isolated testing.
+- **Why Wiremock?** Allows our pipeline to run offline or immune to external gateway instabilities.
+- **Scope:** Service virtualization of dependencies.
+
+#### 2.4 Frontend / UI Layer (Playwright & Robot Framework)
 - **Objective:** Validate the end-user journeys (E2E) on the SauceDemo e-commerce platform.
 - **Why Playwright?** Offers blazing-fast, cross-browser execution with built-in auto-waiting.
-- **Why Robot Framework?** Implements Behavior-Driven Development (BDD), acting as a living documentation bridge between technical and business stakeholders.
-- **Scope:** Core revenue-generating flows (Authentication, Cart Management, Checkout Math Validation).
+- **Why Robot Framework?** Implements Behavior-Driven Development (BDD).
+- **Scope:** Core revenue-generating flows.
 
-#### 2.3 Performance Layer (K6)
-- **Objective:** Ensure the backend can sustain expected user loads without degradation.
-- **Why K6?** Developer-centric, JavaScript-based load testing tool that integrates seamlessly into CI/CD pipelines with configurable Service Level Agreements (SLAs).
-- **Scope:** Stress/Load testing on the API layer, monitoring P95 response times and failure rates.
+#### 2.5 Performance Layer (K6)
+- **Objective:** Ensure the backend can sustain expected loads without degradation.
+- **Why K6?** Developer-centric, JavaScript-based load testing tool (Configurable SLAs).
+- **Scope:** Stress/Load testing on the API layer.
 
 ### 3. Risk Analysis & Mitigation
-- **Data Pollution:** (Medium Risk) Mitigated by implementing intelligent Pytest `yield` fixtures to auto-delete generated test data regardless of test outcome (Clean State).
-- **Environment Flakiness:** (High Risk) Mitigated by integrating `pytest-rerunfailures`, Playwright native retries, and increased Robot Browser timeouts to tolerate server cold starts.
-- **False Positives:** (High Risk) Mitigated by replacing shallow UI assertions with Deep Assertions (mathematical calculations of the cart, DB state verification via API GET).
+- **Data Pollution:** (Medium Risk) Mitigated by implementing intelligent Pytest clean-state fixtures.
+- **External Environment Flakiness:** (High Risk) Mitigated with Wiremock and Contract Testing.
+- **False Positives:** (High Risk) Mitigated by SQL Deep Assertions instead of merely verifying HTTP statuses.
 
 ---
 
+<a name="español"></a>
 ## Español
 
 ### 1. Resumen Ejecutivo
-Este documento describe el enfoque estratégico de Aseguramiento de Calidad para el portafolio **QA Automation Hub**. El objetivo es demostrar una estrategia madura de pruebas "shift-left" que abarca múltiples capas de la arquitectura de la aplicación, desde APIs de backend hasta la UI de frontend y rendimiento, adhiriéndose a los principios de la Pirámide de Automatización de Pruebas.
+Este documento describe el enfoque estratégico de Aseguramiento de Calidad para el portafolio **QA Automation Hub**. El objetivo es demostrar una estrategia madura de pruebas "shift-left" que abarca múltiples capas de la arquitectura de la aplicación, desde APIs de backend hasta la UI de frontend, Base de Datos, Pruebas de Contrato y Rendimiento, adhiriéndose a los principios de la Pirámide de Automatización de Pruebas.
 
 ### 2. Estrategia de Pruebas y la Pirámide de Automatización
 Nuestra estrategia de pruebas está diseñada para proporcionar la máxima cobertura de riesgos con una velocidad de ejecución y mantenibilidad óptimas.
 
-#### 2.1 Capa de Backend / API (Pytest)
-- **Objetivo:** Validar la lógica de negocio y la persistencia en la base de datos del microservicio Restful-Booker.
-- **Por qué Pytest?** Proporciona un marco nativo de Python robusto para pruebas rápidas de API con potentes capacidades de `fixture` para la gestión de estado (setup/teardown).
-- **Alcance:** Operaciones CRUD, Validación de Esquema, Autenticación y Aserciones Profundas (validando el estado real de la base de datos).
+#### 2.1 Capa de Backend / API y Persistencia (Pytest + PostgreSQL)
+- **Objetivo:** Validar la lógica de negocio y la persistencia física en base de datos a través de un entorno Dockerizado.
+- **Por qué Pytest?** Proporciona un marco nativo de Python robusto. Usamos SQLAlchemy para aserciones profundas directamente en la BD.
+- **Alcance:** Operaciones CRUD, Autenticación y Aserciones Profundas (validando el estado real de la base de datos).
 
-#### 2.2 Capa de Frontend / UI (Playwright y Robot Framework)
+#### 2.2 Capa de Pruebas de Contrato (Pact)
+- **Objetivo:** Asegurar la estabilidad en la comunicación entre Microservicios (Consumer vs Provider).
+- **Por qué Pact?** Previene fallos catastróficos en producción derivados de rupturas del esquema JSON.
+- **Alcance:** Mapeo formal de contratos entre Front-end y Back-end.
+
+#### 2.3 Capa de Mocking (Wiremock)
+- **Objetivo:** Simular APIs de terceros para pruebas completamente aisladas.
+- **Por qué Wiremock?** Permite que nuestra pipeline se ejecute fuera de línea o inmune a inestabilidades de pasarelas externas.
+- **Alcance:** Virtualización de servicios dependientes.
+
+#### 2.4 Capa de Frontend / UI (Playwright y Robot Framework)
 - **Objetivo:** Validar los viajes del usuario final (E2E) en la plataforma de comercio electrónico SauceDemo.
-- **Por qué Playwright?** Ofrece ejecución ultrarrápida en múltiples navegadores con esperas automáticas (auto-waiting) integradas.
-- **Por qué Robot Framework?** Implementa el Desarrollo Guiado por Comportamiento (BDD), actuando como un puente de documentación viva entre los responsables técnicos y de negocio.
-- **Alcance:** Flujos principales generadores de ingresos (Autenticación, Gestión de Carrito, Validación Matemática de Pago).
+- **Por qué Playwright?** Ofrece ejecución ultrarrápida en múltiples navegadores con esperas automáticas integradas.
+- **Por qué Robot Framework?** Implementa el Desarrollo Guiado por Comportamiento (BDD).
+- **Alcance:** Flujos principales generadores de ingresos.
 
-#### 2.3 Capa de Rendimiento (K6)
-- **Objetivo:** Asegurar que el backend pueda sostener las cargas de usuario esperadas sin degradación.
-- **Por qué K6?** Herramienta de pruebas de carga basada en JavaScript y centrada en el desarrollador que se integra perfectamente en pipelines CI/CD con Acuerdos de Nivel de Servicio (SLAs) configurables.
-- **Alcance:** Pruebas de Estrés/Carga en la capa API, monitoreando tiempos de respuesta P95 y tasas de fallo.
+#### 2.5 Capa de Rendimiento (K6)
+- **Objetivo:** Asegurar que el backend pueda sostener las cargas esperadas sin degradación.
+- **Por qué K6?** Herramienta de pruebas de carga basada en JavaScript (SLA Configurables).
+- **Alcance:** Pruebas de Estrés/Carga en la capa API.
 
 ### 3. Análisis de Riesgos y Mitigación
-- **Contaminación de Datos:** (Riesgo Medio) Mitigado implementando fixtures inteligentes de Pytest con `yield` para auto-eliminar datos de prueba generados sin importar el resultado de la prueba (Estado Limpio).
-- **Inestabilidad del Entorno:** (Riesgo Alto) Mitigado integrando `pytest-rerunfailures`, reintentos nativos de Playwright y aumento de los tiempos de espera del navegador Robot para tolerar arranques en frío del servidor.
-- **Falsos Positivos:** (Riesgo Alto) Mitigado reemplazando aserciones de UI superficiales con Aserciones Profundas (cálculos matemáticos del carrito, verificación de estado de la base de datos vía API GET).
+- **Contaminación de Datos:** (Riesgo Medio) Mitigado implementando fixtures inteligentes de estado limpio en Pytest.
+- **Inestabilidad del Entorno Externo:** (Riesgo Alto) Mitigado con Wiremock y Pruebas de Contrato.
+- **Falsos Positivos:** (Riesgo Alto) Mitigado por Aserciones Profundas SQL en lugar de simplemente verificar estados HTTP.
