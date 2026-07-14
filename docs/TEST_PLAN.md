@@ -1,11 +1,9 @@
-# Master Test Plan: QA Automation Hub
-
-[Plano Mestre de Testes](#português) | [Master Test Plan](#english) | [Plan Maestro de Pruebas](#español)
+[Português](#português) | [English](#english) | [Español](#español)
 
 ---
 
 <a id="português"></a>
-## Português
+# Plano Mestre de Testes
 
 ### 1. Resumo Executivo
 Este documento descreve a abordagem estratégica de Garantia de Qualidade para o portfólio **QA Automation Hub**. O objetivo é demonstrar uma estratégia madura de testes "shift-left" que abrange múltiplas camadas da arquitetura da aplicação, desde APIs de backend até UI de frontend, Banco de Dados, Testes de Contrato e Performance, aderindo aos princípios da Pirâmide de Automação de Testes.
@@ -47,7 +45,7 @@ Nossa estratégia de testes é projetada para fornecer máxima cobertura de risc
 ---
 
 <a id="english"></a>
-## English
+# Master Test Plan
 
 ### 1. Executive Summary
 This document outlines the strategic Quality Assurance approach for the **QA Automation Hub** portfolio. The objective is to demonstrate a mature, shift-left testing strategy that spans across multiple layers of the application architecture, from backend APIs to frontend UI, Database, Contract Testing, and Performance, adhering to the Test Automation Pyramid principles.
@@ -89,7 +87,7 @@ Our testing strategy is designed to provide maximum risk coverage with optimal e
 ---
 
 <a id="español"></a>
-## Español
+# Plan Maestro de Pruebas
 
 ### 1. Resumen Ejecutivo
 Este documento describe el enfoque estratégico de Aseguramiento de Calidad para el portafolio **QA Automation Hub**. El objetivo es demostrar una estrategia madura de pruebas "shift-left" que abarca múltiples capas de la arquitectura de la aplicación, desde APIs de backend hasta la UI de frontend, Base de Datos, Pruebas de Contrato y Rendimiento, adhiriéndose a los principios de la Pirámide de Automatización de Pruebas.

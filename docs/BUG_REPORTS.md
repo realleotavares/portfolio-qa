@@ -1,11 +1,9 @@
-# Bug Reports & Infrastructure Catalog
-
-[Relatórios de Bugs e Infraestrutura](#português) | [Bug Reports & Infrastructure Catalog](#english) | [Reportes de Bugs e Infraestructura](#español)
+[Português](#português) | [English](#english) | [Español](#español)
 
 ---
 
 <a id="português"></a>
-## Português
+# Relatórios de Bugs e Infraestrutura
 
 Este documento cataloga defeitos do mundo real, gargalos de infraestrutura e bugs de automação de testes descobertos e resolvidos durante a construção desta pipeline. Documentar isso garante transparência e prova experiência na mitigação de ambientes complexos e instáveis.
 
@@ -50,7 +48,7 @@ Criada uma fixture `cleanup_bookings` usando o mecanismo `yield` do Pytest em `c
 ---
 
 <a id="english"></a>
-## English
+# Bug Reports & Infrastructure Catalog
 
 This document catalogs real-world defects, infrastructure bottlenecks, and test-automation bugs discovered and resolved during the construction of this pipeline. Documenting these ensures transparency and proves experience in mitigating complex, flaky environments.
 
@@ -95,7 +93,7 @@ Created a `cleanup_bookings` fixture using Pytest's `yield` mechanic in `conftes
 ---
 
 <a id="español"></a>
-## Español
+# Reportes de Bugs e Infraestructura
 
 Este documento cataloga defectos del mundo real, cuellos de botella de infraestructura y errores de automatización de pruebas descubiertos y resueltos durante la construcción de esta pipeline. Documentar esto asegura transparencia y prueba experiencia en la mitigación de entornos complejos e inestables.
 
