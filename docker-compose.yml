@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: qadb
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d qadb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  wiremock:
+    image: wiremock/wiremock:3.6.0
+    ports:
+      - "8080:8080"
+    command:
+      - "--disable-banner"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/__admin/mappings"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./api-dummy
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/qadb
+      - WIREMOCK_URL=http://wiremock:8080
+    depends_on:
+      db:
+        condition: service_healthy
+      wiremock:
+        condition: service_healthy
