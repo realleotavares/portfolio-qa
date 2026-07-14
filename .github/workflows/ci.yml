@@ -32,7 +32,9 @@ jobs:
           sudo mv allure-2.25.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
       - name: Run Pytest against Restful Booker
-        run: pytest api-pytest/restful-booker/tests --alluredir=allure-results
+        run: |
+          cd api-pytest/restful-booker
+          pytest tests --alluredir=../../allure-results
         continue-on-error: true
       - name: Generate Allure Report
         run: |
