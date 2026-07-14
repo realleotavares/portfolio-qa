@@ -1,11 +1,9 @@
-# Contract Testing Layer
-
 [Português](#português) | [English](#english) | [Español](#español)
 
 ---
 
 <a id="português"></a>
-## Português
+# Camada de Testes de Contrato
 
 ### Objetivo
 Esta camada é dedicada aos Testes de Contrato, uma prática avançada de "Shift-Left Testing" em arquiteturas de microserviços. Seu objetivo central é evitar a quebra de compatibilidade em pipelines de CI/CD. Em vez de depender de pesados testes de ponta a ponta (E2E) para descobrir se o Backend alterou a estrutura do JSON que o Frontend consome, nós definimos um "Contrato" imutável e verificamos se o Provider (Fornecedor da API) continua respeitando estritamente o Schema Acordado.
@@ -24,7 +22,7 @@ pytest contract-tests/ --alluredir=allure-results
 ---
 
 <a id="english"></a>
-## English
+# Contract Testing Layer
 
 ### Objective
 This layer is dedicated to Contract Testing, an advanced "Shift-Left Testing" practice in microservices architectures. Its central goal is to prevent integration breakage in CI/CD pipelines. Instead of relying on slow and heavy End-to-End (E2E) tests to find out if the Backend changed the JSON payload structure that the Frontend consumes, we define an immutable "Contract" and automatically verify if the Provider (API Server) still strictly respects the Agreed Schema.
@@ -43,7 +41,7 @@ pytest contract-tests/ --alluredir=allure-results
 ---
 
 <a id="español"></a>
-## Español
+# Capa de Pruebas de Contrato
 
 ### Objetivo
 Esta capa está dedicada a las Pruebas de Contrato, una práctica avanzada de "Shift-Left Testing" en arquitecturas de microservicios. Su objetivo central es evitar la ruptura de compatibilidad en las tuberías de CI/CD. En lugar de depender de pruebas pesadas de extremo a extremo (E2E) para descubrir si el Backend cambió la estructura JSON que consume el Frontend, definimos un "Contrato" inmutable y verificamos si el Proveedor (API Server) continúa respetando estrictamente el Esquema Acordado.
