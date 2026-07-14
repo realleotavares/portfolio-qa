@@ -1,10 +1,10 @@
 # Risk Matrix
 
-[Português](#português) | [English](#english) | [Español](#español)
+[Matriz de Riscos](#português) | [Risk Matrix](#english) | [Matriz de Riesgos](#español)
 
 ---
 
-<a name="português"></a>
+<a id="português"></a>
 ## Português
 
 A matriz de riscos relaciona os impactos de negócios às coberturas de automação implementadas neste projeto.
@@ -19,7 +19,7 @@ A matriz de riscos relaciona os impactos de negócios às coberturas de automaç
 
 ---
 
-<a name="english"></a>
+<a id="english"></a>
 ## English
 
 The risk matrix correlates business impacts with the automated coverage implemented in this project.
@@ -34,7 +34,7 @@ The risk matrix correlates business impacts with the automated coverage implemen
 
 ---
 
-<a name="español"></a>
+<a id="español"></a>
 ## Español
 
 La matriz de riesgos correlaciona los impactos de negocio con las coberturas de automatización implementadas en este proyecto.

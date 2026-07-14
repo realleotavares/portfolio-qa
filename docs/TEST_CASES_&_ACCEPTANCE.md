@@ -1,10 +1,10 @@
 # Test Cases & Acceptance Criteria Traceability
 
-[Português](#português) | [English](#english) | [Español](#español)
+[Casos de Teste & Critérios de Aceite](#português) | [Test Cases & Acceptance Criteria Traceability](#english) | [Casos de Prueba y Criterios de Aceptación](#español)
 
 ---
 
-<a name="português"></a>
+<a id="português"></a>
 ## Português
 
 Esta matriz conecta os requisitos de negócios fictícios (Critérios de Aceite) aos cenários de teste automatizados implementados nos frameworks. Isso garante que cada linha de automação entregue valor real de negócio.
@@ -30,7 +30,7 @@ Esta matriz conecta os requisitos de negócios fictícios (Critérios de Aceite)
 
 ---
 
-<a name="english"></a>
+<a id="english"></a>
 ## English
 
 This matrix connects the fictional business requirements (Acceptance Criteria) to the automated test scenarios implemented across the frameworks. This ensures that every line of automation delivers actual business value.
@@ -56,7 +56,7 @@ This matrix connects the fictional business requirements (Acceptance Criteria) t
 
 ---
 
-<a name="español"></a>
+<a id="español"></a>
 ## Español
 
 Esta matriz conecta los requisitos comerciales ficticios (Criterios de Aceptación) con los escenarios de prueba automatizados implementados en los frameworks. Esto asegura que cada línea de automatización entregue un valor comercial real.

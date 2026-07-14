@@ -1,10 +1,10 @@
 # Defect Simulator (Jira)
 
-[Português](#português) | [English](#english) | [Español](#español)
+[Simulador de Defeitos (Jira)](#português) | [Defect Simulator (Jira)](#english) | [Simulador de Defectos (Jira)](#español)
 
 ---
 
-<a name="português"></a>
+<a id="português"></a>
 ## Português
 
 Abaixo está o registro simulado da rastreabilidade de defeitos e tarefas, modelado como um quadro Jira corporativo.
@@ -19,7 +19,7 @@ Abaixo está o registro simulado da rastreabilidade de defeitos e tarefas, model
 
 ---
 
-<a name="english"></a>
+<a id="english"></a>
 ## English
 
 Below is the simulated defect and task traceability log, modeled as a corporate Jira board.
@@ -34,7 +34,7 @@ Below is the simulated defect and task traceability log, modeled as a corporate 
 
 ---
 
-<a name="español"></a>
+<a id="español"></a>
 ## Español
 
 A continuación se muestra el registro simulado de trazabilidad de defectos y tareas, modelado como un tablero Jira corporativo.

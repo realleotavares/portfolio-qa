@@ -4,7 +4,7 @@
 
 ---
 
-<a name="português"></a>
+<a id="português"></a>
 ## Português
 
 ### Objetivo
@@ -29,7 +29,7 @@ pytest api-db-integration/ --alluredir=allure-results
 
 ---
 
-<a name="english"></a>
+<a id="english"></a>
 ## English
 
 ### Objective
@@ -54,7 +54,7 @@ pytest api-db-integration/ --alluredir=allure-results
 
 ---
 
-<a name="español"></a>
+<a id="español"></a>
 ## Español
 
 ### Objetivo

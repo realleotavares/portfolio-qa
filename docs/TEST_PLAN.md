@@ -1,10 +1,10 @@
 # Master Test Plan: QA Automation Hub
 
-[Português](#português) | [English](#english) | [Español](#español)
+[Plano Mestre de Testes](#português) | [Master Test Plan](#english) | [Plan Maestro de Pruebas](#español)
 
 ---
 
-<a name="português"></a>
+<a id="português"></a>
 ## Português
 
 ### 1. Resumo Executivo
@@ -46,7 +46,7 @@ Nossa estratégia de testes é projetada para fornecer máxima cobertura de risc
 
 ---
 
-<a name="english"></a>
+<a id="english"></a>
 ## English
 
 ### 1. Executive Summary
@@ -88,7 +88,7 @@ Our testing strategy is designed to provide maximum risk coverage with optimal e
 
 ---
 
-<a name="español"></a>
+<a id="español"></a>
 ## Español
 
 ### 1. Resumen Ejecutivo
