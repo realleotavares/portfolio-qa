@@ -1,6 +1,6 @@
 import requests
 from jsonschema import validate
-from ..schemas.booking_schema import BOOKING_SCHEMA, CREATE_BOOKING_RESPONSE_SCHEMA
+from schemas.booking_schema import BOOKING_SCHEMA, CREATE_BOOKING_RESPONSE_SCHEMA
 
 class TestBookingAPI:
     """
