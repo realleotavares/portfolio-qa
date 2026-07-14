@@ -27,11 +27,11 @@ Para além do código, este portfólio demonstra pensamento crítico de engenhar
 - **Resiliência (Anti-Flakiness):** Integração ativa de Smart Waits, Retries nativos (Playwright/Pytest) e Thresholds customizados (K6) para suportar latências de rede e "Cold Starts".
 
 Consulte os pilares estratégicos de QA na pasta de documentação:
-- [Master Test Plan](docs/TEST_PLAN.md)
-- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
-- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
-- [Defect Simulator (Jira)](docs/JIRA_SIMULATION.md)
-- [Risk Matrix](docs/RISK_MATRIX.md)
+- [Plano Mestre de Testes](docs/TEST_PLAN.md)
+- [Casos de Teste & Critérios de Aceite](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Relatórios de Bugs e Infraestrutura](docs/BUG_REPORTS.md)
+- [Simulador de Defeitos (Jira)](docs/JIRA_SIMULATION.md)
+- [Matriz de Riscos](docs/RISK_MATRIX.md)
 - [Changelog](CHANGELOG.md)
 
 ---
@@ -225,11 +225,11 @@ Más allá del código, este portafolio demuestra pensamiento crítico de ingeni
 - **Resiliencia (Anti-Flakiness):** Integración activa de Esperas Inteligentes, Reintentos nativos (Playwright/Pytest) y Umbrales personalizados (K6) para soportar latencias de red y "Arranques en Frío".
 
 Explore los pilares estratégicos de QA en la carpeta de documentación:
-- [Master Test Plan](docs/TEST_PLAN.md)
-- [Test Cases & Acceptance Criteria Traceability](docs/TEST_CASES_&_ACCEPTANCE.md)
-- [Bug Reports & Infra Catalog](docs/BUG_REPORTS.md)
-- [Defect Simulator (Jira)](docs/JIRA_SIMULATION.md)
-- [Risk Matrix](docs/RISK_MATRIX.md)
+- [Plan Maestro de Pruebas](docs/TEST_PLAN.md)
+- [Casos de Prueba y Criterios de Aceptación](docs/TEST_CASES_&_ACCEPTANCE.md)
+- [Reportes de Bugs e Infraestructura](docs/BUG_REPORTS.md)
+- [Simulador de Defectos (Jira)](docs/JIRA_SIMULATION.md)
+- [Matriz de Riesgos](docs/RISK_MATRIX.md)
 - [Changelog](CHANGELOG.md)
 
 ---
