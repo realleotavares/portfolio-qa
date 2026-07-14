@@ -23,11 +23,6 @@ services:
       - "--disable-banner"
     volumes:
       - ./wiremock/mappings:/home/wiremock/mappings
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/__admin/mappings"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
 
   api:
     build:
@@ -41,4 +36,4 @@ services:
       db:
         condition: service_healthy
       wiremock:
-        condition: service_healthy
+        condition: service_started

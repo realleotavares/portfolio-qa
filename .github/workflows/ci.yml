@@ -36,7 +36,9 @@ jobs:
           sudo mv allure-2.25.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
       - name: Start Docker Environment
-        run: docker compose up -d --wait
+        run: |
+          docker compose up -d
+          sleep 15
       - name: Run Database Integration & Mocking Tests
         run: pytest api-db-integration/ --alluredir=${GITHUB_WORKSPACE}/allure-results
         continue-on-error: true
