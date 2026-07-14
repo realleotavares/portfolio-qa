@@ -15,12 +15,12 @@ export const options = {
     { duration: '10s', target: 0 }, // Ramp down
   ],
   thresholds: {
-    // 95% das requisições GET devem completar em menos de 2s (SLA)
-    'get_bookings_duration': ['p(95)<2000'],
+    // 95% das requisições GET devem completar em menos de 10s devido ao cold-start do Heroku (Sandbox SLA)
+    'get_bookings_duration': ['p(95)<10000'],
     // Taxa de erro global não pode ultrapassar 1%
     'error_rate': ['rate<0.01'],
-    // Tempo de requisição geral não pode passar de 2.5s (99 percentil)
-    'http_req_duration': ['p(99)<2500'],
+    // Tempo de requisição geral não pode passar de 12s (99 percentil) tolerando a API pública
+    'http_req_duration': ['p(99)<12000'],
   },
 };
 
