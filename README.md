@@ -9,6 +9,8 @@
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
+> **[Acesse o Hub Central de Relatórios (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar as métricas, traces e logs da última execução da pipeline.
+
 Bem-vindo à minha vitrine de Engenharia de Qualidade. Este repositório atua como um **Monorepo** centralizando o meu ecossistema completo de automação de testes.
 
 ## Filosofia de Testes Éticos
@@ -72,6 +74,8 @@ Este monorepo é governado por uma pipeline unificada via GitHub Actions (`.gith
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
 
+> **[Access the QA Reports Hub (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** to view metrics, traces, and logs from the latest pipeline execution.
+
 Welcome to my Quality Engineering showcase. This repository serves as a **Monorepo** containing my complete test automation ecosystem.
 
 ## Ethical Testing Philosophy
@@ -134,6 +138,8 @@ This monorepo is governed by a unified GitHub Actions pipeline (`.github/workflo
 [![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
 [![Robot Framework](https://img.shields.io/badge/Robot_Framework-000000?logo=robotframework&logoColor=white)](https://robotframework.org/)
 [![K6](https://img.shields.io/badge/K6-7D64FF?logo=k6&logoColor=white)](https://k6.io/)
+
+> **[Acceda al Centro de Reportes de QA (Live Reports)](https://realleotavares.github.io/portfolio-qa/)** para visualizar métricas, traces y registros de la última ejecución del pipeline.
 
 Bienvenido a mi vitrina de Ingeniería de Calidad. Este repositorio funciona como un **Monorepo** centralizando mi ecosistema completo de automatización de pruebas.
 
