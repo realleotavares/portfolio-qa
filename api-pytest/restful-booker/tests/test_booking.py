@@ -21,7 +21,7 @@ class TestBookingAPI:
         if len(data) > 0:
             assert "bookingid" in data[0], "Payload does not contain bookingid"
 
-    def test_create_booking_schema_validation(self, base_url):
+    def test_create_booking_schema_validation(self, base_url, cleanup_bookings):
         """Validate the creation of a booking and assert the response JSON matches the defined schema."""
         payload = {
             "firstname": "John",
@@ -44,6 +44,9 @@ class TestBookingAPI:
         assert response.status_code == 200
         data = response.json()
         
+        # Track for automatic teardown
+        cleanup_bookings.append(data["bookingid"])
+        
         # Schema Validation
         validate(instance=data, schema=CREATE_BOOKING_RESPONSE_SCHEMA)
         
@@ -63,7 +66,7 @@ class TestBookingAPI:
         assert persisted_data["depositpaid"] == payload["depositpaid"], "Persisted deposit mismatch"
         assert persisted_data["bookingdates"]["checkin"] == payload["bookingdates"]["checkin"], "Persisted checkin mismatch"
 
-    def test_update_booking_requires_auth(self, base_url, auth_headers):
+    def test_update_booking_requires_auth(self, base_url, auth_headers, cleanup_bookings):
         """Validate that an existing booking can be fully updated using proper authentication."""
         # 1. Setup: Create a booking to update
         create_payload = {
@@ -79,6 +82,9 @@ class TestBookingAPI:
         create_resp = requests.post(f"{base_url}/booking", json=create_payload, headers={"Accept": "application/json"})
         assert create_resp.status_code == 200
         booking_id = create_resp.json()["bookingid"]
+        
+        # Track for automatic teardown
+        cleanup_bookings.append(booking_id)
 
         # 2. Action: Update the booking
         update_payload = create_payload.copy()
@@ -106,7 +112,7 @@ class TestBookingAPI:
         assert persisted_data["firstname"] == "UpdatedName", "Persisted firstname was not updated in DB"
         assert persisted_data["totalprice"] == 300, "Persisted total price was not updated in DB"
 
-    def test_delete_booking(self, base_url, auth_headers):
+    def test_delete_booking(self, base_url, auth_headers, cleanup_bookings):
         """Validate that a booking can be deleted and subsequent GET returns 404."""
         # Setup: Create booking
         payload = {
@@ -118,6 +124,9 @@ class TestBookingAPI:
         }
         create_resp = requests.post(f"{base_url}/booking", json=payload, headers={"Accept": "application/json"})
         booking_id = create_resp.json()["bookingid"]
+        
+        # Track for automatic teardown (in case the delete API call fails during the test)
+        cleanup_bookings.append(booking_id)
 
         # Action: Delete
         delete_resp = requests.delete(f"{base_url}/booking/{booking_id}", headers=auth_headers)

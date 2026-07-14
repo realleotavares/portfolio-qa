@@ -37,3 +37,18 @@ def auth_headers(auth_token):
         "Accept": "application/json",
         "Content-Type": "application/json"
     }
+
+@pytest.fixture
+def cleanup_bookings(base_url, auth_headers):
+    """
+    Intelligent Teardown Fixture: 
+    Yields a list that the test can append booking IDs to.
+    After the test completes (pass or fail), all IDs in the list are safely deleted,
+    preventing data pollution in the sandbox environment.
+    """
+    booking_ids = []
+    yield booking_ids
+    
+    # Teardown Phase
+    for b_id in booking_ids:
+        requests.delete(f"{base_url}/booking/{b_id}", headers=auth_headers)
