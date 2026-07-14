@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     Keywords for SauceDemo E2E Flow
 Library           Browser
+Library           String
 
 *** Variables ***
 ${URL}            https://www.saucedemo.com/
@@ -43,7 +44,7 @@ Navigate To Cart
 Verify Product Is In Cart
     [Arguments]    ${product_name}
     [Documentation]    Checks if the product is visible in the cart items list.
-    Get Element State    text="${product_name}"    visible
+    Wait For Elements State    text="${product_name}"    visible
 
 Finish Session
     [Documentation]    Closes the browser session.
