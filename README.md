@@ -75,6 +75,12 @@ Garantia de que Front-end e Back-end não quebrem esquemas de comunicação.
 - **Padrão de Projeto:** `pact-python` definindo JSON Schemas esperados.
 - **Competências:** Testes de Contrato, Shift-Left extremo prevenindo falhas de integração.
 
+### 7. [`manual-testing/`](./manual-testing) (Engenharia de Testes Manuais & BDD)
+Documentação viva detalhando cenários de teste, fluxos de negócio e heurísticas exploratórias.
+- **Padrão de Projeto:** Casos de Teste Tradicionais (Markdown) e BDD/Gherkin (`.feature`).
+- **Sandbox Alvo:** SauceDemo, Automation In Testing, e ParaBank.
+- **Competências:** Modelagem de testes, Bug Advocacy, Especificação Executável e análise de Regras de Negócio.
+
 ---
 
 ## Pipeline CI/CD
@@ -174,6 +180,12 @@ Ensuring Front-end and Back-end do not break communication schemas.
 - **Design Pattern:** `pact-python` defining expected JSON Schemas.
 - **Competencies:** Contract Testing, extreme Shift-Left preventing integration failures.
 
+### 7. [`manual-testing/`](./manual-testing) (Manual Test Engineering & BDD)
+Living documentation detailing test scenarios, business flows, and exploratory heuristics.
+- **Design Pattern:** Traditional Test Cases (Markdown) and BDD/Gherkin (`.feature`).
+- **Target Sandbox:** SauceDemo, Automation In Testing, and ParaBank.
+- **Competencies:** Test Modeling, Bug Advocacy, Executable Specification, and Business Rules mapping.
+
 ---
 
 ## CI/CD Pipeline
@@ -272,6 +284,12 @@ Infraestructura Dockerizada validando integración profunda y aislamiento.
 Garantía de que Front-end y Back-end no rompan los esquemas de comunicación.
 - **Patrón de Diseño:** `pact-python` definiendo JSON Schemas esperados.
 - **Competencias:** Pruebas de Contrato, Shift-Left extremo previniendo fallos de integración.
+
+### 7. [`manual-testing/`](./manual-testing) (Ingeniería de Pruebas Manuales y BDD)
+Documentación viva que detalla escenarios de prueba, flujos de negocio y heurísticas exploratorias.
+- **Patrón de Diseño:** Casos de Prueba Tradicionales (Markdown) y BDD/Gherkin (`.feature`).
+- **Sandbox Objetivo:** SauceDemo, Automation In Testing, y ParaBank.
+- **Competencias:** Modelado de pruebas, Bug Advocacy, Especificación Ejecutable y mapeo de Reglas de Negocio.
 
 ---
 
