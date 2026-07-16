@@ -9,11 +9,11 @@
 Este documento descreve a abordagem estratégica de Garantia de Qualidade para o portfólio **QA Automation Hub**. O objetivo é demonstrar uma estratégia madura de testes "shift-left" que abrange múltiplas camadas da arquitetura da aplicação, desde APIs de backend até UI de frontend, Banco de Dados, Testes de Contrato e Performance, aderindo aos princípios da Pirâmide de Automação de Testes.
 
 ### 2. Estratégia de Testes e a Pirâmide de Automação
-Nossa estratégia de testes é projetada para fornecer máxima cobertura de riscos com velocidade ideal de execução e manutenibilidade.
+Minha estratégia de testes é projetada para fornecer máxima cobertura de riscos com velocidade ideal de execução e manutenibilidade.
 
 #### 2.1 Camada de Backend / API & Persistência (Pytest + PostgreSQL)
 - **Objetivo:** Validar a lógica de negócios e persistência física de banco de dados através de um ambiente Dockerizado.
-- **Por que Pytest?** Fornece um framework robusto nativo em Python. Utilizamos SQLAlchemy para asserções profundas direto na base.
+- **Por que Pytest?** Fornece um framework robusto nativo em Python. Utilizo SQLAlchemy para asserções profundas direto na base.
 - **Escopo:** Operações CRUD, Autenticação, Asserções Profundas (validando o estado real do banco de dados).
 
 #### 2.2 Camada de Testes de Contrato (Pact)
@@ -23,7 +23,7 @@ Nossa estratégia de testes é projetada para fornecer máxima cobertura de risc
 
 #### 2.3 Camada de Mocking (Wiremock)
 - **Objetivo:** Simular APIs terceiras para testes completamente isolados.
-- **Por que Wiremock?** Permite que a nossa pipeline rode offline ou imune a instabilidades de gateways externos.
+- **Por que Wiremock?** Permite que a minha pipeline rode offline ou imune a instabilidades de gateways externos.
 - **Escopo:** Virtualização de serviços dependentes.
 
 #### 2.4 Camada de Frontend / UI (Playwright e Robot Framework)
@@ -51,11 +51,11 @@ Nossa estratégia de testes é projetada para fornecer máxima cobertura de risc
 This document outlines the strategic Quality Assurance approach for the **QA Automation Hub** portfolio. The objective is to demonstrate a mature, shift-left testing strategy that spans across multiple layers of the application architecture, from backend APIs to frontend UI, Database, Contract Testing, and Performance, adhering to the Test Automation Pyramid principles.
 
 ### 2. Test Strategy & The Automation Pyramid
-Our testing strategy is designed to provide maximum risk coverage with optimal execution speed and maintainability.
+My testing strategy is designed to provide maximum risk coverage with optimal execution speed and maintainability.
 
 #### 2.1 Backend / API & Persistence Layer (Pytest + PostgreSQL)
 - **Objective:** Validate the business logic and physical database persistence through a Dockerized environment.
-- **Why Pytest?** Provides a robust Python-native framework. We use SQLAlchemy for deep assertions directly in the DB.
+- **Why Pytest?** Provides a robust Python-native framework. I use SQLAlchemy for deep assertions directly in the DB.
 - **Scope:** CRUD operations, Authentication, and Deep Assertions (validating actual database state).
 
 #### 2.2 Contract Testing Layer (Pact)
@@ -65,7 +65,7 @@ Our testing strategy is designed to provide maximum risk coverage with optimal e
 
 #### 2.3 Mocking Layer (Wiremock)
 - **Objective:** Simulate third-party APIs for completely isolated testing.
-- **Why Wiremock?** Allows our pipeline to run offline or immune to external gateway instabilities.
+- **Why Wiremock?** Allows my pipeline to run offline or immune to external gateway instabilities.
 - **Scope:** Service virtualization of dependencies.
 
 #### 2.4 Frontend / UI Layer (Playwright & Robot Framework)
@@ -93,11 +93,11 @@ Our testing strategy is designed to provide maximum risk coverage with optimal e
 Este documento describe el enfoque estratégico de Aseguramiento de Calidad para el portafolio **QA Automation Hub**. El objetivo es demostrar una estrategia madura de pruebas "shift-left" que abarca múltiples capas de la arquitectura de la aplicación, desde APIs de backend hasta la UI de frontend, Base de Datos, Pruebas de Contrato y Rendimiento, adhiriéndose a los principios de la Pirámide de Automatización de Pruebas.
 
 ### 2. Estrategia de Pruebas y la Pirámide de Automatización
-Nuestra estrategia de pruebas está diseñada para proporcionar la máxima cobertura de riesgos con una velocidad de ejecución y mantenibilidad óptimas.
+Mi estrategia de pruebas está diseñada para proporcionar la máxima cobertura de riesgos con una velocidad de ejecución y mantenibilidad óptimas.
 
 #### 2.1 Capa de Backend / API y Persistencia (Pytest + PostgreSQL)
 - **Objetivo:** Validar la lógica de negocio y la persistencia física en base de datos a través de un entorno Dockerizado.
-- **Por qué Pytest?** Proporciona un marco nativo de Python robusto. Usamos SQLAlchemy para aserciones profundas directamente en la BD.
+- **Por qué Pytest?** Proporciona un marco nativo de Python robusto. Uso SQLAlchemy para aserciones profundas directamente en la BD.
 - **Alcance:** Operaciones CRUD, Autenticación y Aserciones Profundas (validando el estado real de la base de datos).
 
 #### 2.2 Capa de Pruebas de Contrato (Pact)
@@ -107,7 +107,7 @@ Nuestra estrategia de pruebas está diseñada para proporcionar la máxima cober
 
 #### 2.3 Capa de Mocking (Wiremock)
 - **Objetivo:** Simular APIs de terceros para pruebas completamente aisladas.
-- **Por qué Wiremock?** Permite que nuestra pipeline se ejecute fuera de línea o inmune a inestabilidades de pasarelas externas.
+- **Por qué Wiremock?** Permite que mi pipeline se ejecute fuera de línea o inmune a inestabilidades de pasarelas externas.
 - **Alcance:** Virtualización de servicios dependientes.
 
 #### 2.4 Capa de Frontend / UI (Playwright y Robot Framework)

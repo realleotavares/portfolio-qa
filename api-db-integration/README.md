@@ -6,7 +6,7 @@
 # Camada de Integração de API e Banco de Dados
 
 ### Objetivo
-Esta camada foca nos testes de integração profunda entre a API e sua camada de persistência. O objetivo é validar o comportamento "Shift-Left" do Banco de Dados. Em vez de apenas confiar nos códigos de status HTTP da API (ex: 201 Created), nós utilizamos conexões diretas via `SQLAlchemy` e `psycopg2` no PostgreSQL para realizar as **Asserções Profundas** (Deep Assertions), verificando se os dados foram realmente escritos nos blocos físicos de armazenamento, de forma isolada usando Docker Compose.
+Esta camada foca nos testes de integração profunda entre a API e sua camada de persistência. O objetivo é validar o comportamento "Shift-Left" do Banco de Dados. Em vez de apenas confiar nos códigos de status HTTP da API (ex: 201 Created), eu utilizo conexões diretas via `SQLAlchemy` e `psycopg2` no PostgreSQL para realizar as **Asserções Profundas** (Deep Assertions), verificando se os dados foram realmente escritos nos blocos físicos de armazenamento, de forma isolada usando Docker Compose.
 
 ### Arquitetura e Ferramentas
 - **Pytest**: Framework principal para orquestrar os casos de testes.
@@ -31,7 +31,7 @@ pytest api-db-integration/ --alluredir=allure-results
 # API & Database Integration Layer
 
 ### Objective
-This layer focuses on deep integration testing between the API and its persistence layer. The goal is to validate the "Shift-Left" Database behavior. Instead of merely trusting the HTTP status codes from the API (e.g. 201 Created), we utilize direct connections via `SQLAlchemy` and `psycopg2` in PostgreSQL to perform **Deep Assertions**, verifying if the data was actually written to the physical storage blocks, isolated completely via Docker Compose.
+This layer focuses on deep integration testing between the API and its persistence layer. The goal is to validate the "Shift-Left" Database behavior. Instead of merely trusting the HTTP status codes from the API (e.g. 201 Created), I utilize direct connections via `SQLAlchemy` and `psycopg2` in PostgreSQL to perform **Deep Assertions**, verifying if the data was actually written to the physical storage blocks, isolated completely via Docker Compose.
 
 ### Architecture and Tools
 - **Pytest**: The core test runner orchestration framework.
@@ -56,7 +56,7 @@ pytest api-db-integration/ --alluredir=allure-results
 # Capa de Integración de API y Base de Datos
 
 ### Objetivo
-Esta capa se centra en las pruebas de integración profunda entre la API y su capa de persistencia. El objetivo es validar el comportamiento "Shift-Left" de la Base de Datos. En lugar de confiar simplemente en los códigos de estado HTTP de la API (ej. 201 Created), utilizamos conexiones directas a través de `SQLAlchemy` y `psycopg2` en PostgreSQL para realizar **Aserciones Profundas** (Deep Assertions), verificando si los datos realmente se escribieron en los bloques de almacenamiento físico, aislado completamente a través de Docker Compose.
+Esta capa se centra en las pruebas de integración profunda entre la API y su capa de persistencia. El objetivo es validar el comportamiento "Shift-Left" de la Base de Datos. En lugar de confiar simplemente en los códigos de estado HTTP de la API (ej. 201 Created), utilizo conexiones directas a través de `SQLAlchemy` y `psycopg2` en PostgreSQL para realizar **Aserciones Profundas** (Deep Assertions), verificando si los datos realmente se escribieron en los bloques de almacenamiento físico, aislado completamente a través de Docker Compose.
 
 ### Arquitectura y Herramientas
 - **Pytest**: El framework principal para orquestar los casos de prueba.

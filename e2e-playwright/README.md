@@ -29,7 +29,7 @@ O padrão arquitetural isola as validações de UI em subprojetos direcionados a
 
 ## Dashboard de Qualidade
 
-> Nossa pipeline CI/CD publica automaticamente o relatório de execução do Playwright no GitHub Pages. Ele inclui traces completos, capturas de tela e vídeos de eventuais falhas durante as execuções contínuas.
+> Minha pipeline CI/CD publica automaticamente o relatório de execução do Playwright no GitHub Pages. Ele inclui traces completos, capturas de tela e vídeos de eventuais falhas durante as execuções contínuas.
 
 ## Quick Start (Onboarding)
 
@@ -87,7 +87,7 @@ The architectural pattern isolates UI validations into subprojects targeting est
 
 ## Quality Dashboard
 
-> Our CI/CD pipeline automatically publishes the Playwright execution report to GitHub Pages. It includes full traces, screenshots, and videos of any failures during continuous executions.
+> My CI/CD pipeline automatically publishes the Playwright execution report to GitHub Pages. It includes full traces, screenshots, and videos of any failures during continuous executions.
 
 ## Quick Start (Onboarding)
 
@@ -145,7 +145,7 @@ El patrón arquitectónico aísla las validaciones de UI en subproyectos dirigid
 
 ## Dashboard de Calidad
 
-> Nuestro pipeline CI/CD publica automáticamente el informe de ejecución de Playwright en GitHub Pages. Incluye rastros completos (traces), capturas de pantalla y videos de cualquier fallo durante las ejecuciones continuas.
+> Mi pipeline CI/CD publica automáticamente el informe de ejecución de Playwright en GitHub Pages. Incluye rastros completos (traces), capturas de pantalla y videos de cualquier fallo durante las ejecuciones continuas.
 
 ## Quick Start (Onboarding)
 
